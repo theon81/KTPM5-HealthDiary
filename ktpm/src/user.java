@@ -4,6 +4,17 @@ public class User {
     private String Username;
     private String Password;
 
+    public User() {
+    }
+
+    public User(String ID, String Roles, String Username, String Password) {
+        this.setID(ID);
+        this.setRoles(Roles);
+        this.setUsername(Username);
+        this.setPassword(Password);
+    }
+
+    
     public String getID() {
         return ID;
     }
@@ -68,7 +79,7 @@ public class User {
         }
     }
     public static void main(String[] args) {
-        user user = new user();
+        User user = new User();
         
         user.setID("001");
         user.setRoles("Admin");
