@@ -1,0 +1,6 @@
+{
+    "java.project.sourcePaths": [
+        "ktpm/src",
+        "health_diary/src/main/java/com/app/view"
+    ]
+}
