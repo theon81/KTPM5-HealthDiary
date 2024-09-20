@@ -68,7 +68,7 @@ public class User {
         }
     }
     public static void main(String[] args) {
-        user user = new user();
+        User user = new User();
         
         user.setID("001");
         user.setRoles("Admin");
