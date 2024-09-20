@@ -1,9 +1,21 @@
+package com.app.model;
 public class User {
     private String ID;
     private String Roles;
     private String Username;
     private String Password;
 
+    public User() {
+    }
+
+    public User(String ID, String Roles, String Username, String Password) {
+        this.setID(ID);
+        this.setRoles(Roles);
+        this.setUsername(Username);
+        this.setPassword(Password);
+    }
+
+    
     public String getID() {
         return ID;
     }
