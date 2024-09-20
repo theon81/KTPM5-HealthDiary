@@ -4,4 +4,7 @@ module com.app {
 
     opens com.app to javafx.fxml;
     exports com.app;
+
+    exports com.app.view;
+    exports com.app.controller;
 }

@@ -1,3 +1,4 @@
+package com.app.model;
 
 public class Date {
     private int day;

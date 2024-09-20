@@ -1,3 +1,5 @@
+package com.app.model;
+
 public class Time {
     private int hour;
     private int minute;
