@@ -1,16 +1,16 @@
 .button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 14px;
-    padding: 10px;
+    -fx-background-color: #66ff66;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
 }
 
 .label {
-    font-size: 14px;
-    padding: 5px;
+    -fx-font-size: 14px;
+    -fx-padding: 10px;
 }
 
 .text-field {
-    font-size: 12px;
-    padding: 5px;
+    -fx-font-size: 12px;
+    -fx-padding: 5px;
 }

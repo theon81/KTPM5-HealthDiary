@@ -41,7 +41,7 @@ public class UserController {
         VBox vbox = new VBox(10, lblUsername, txtUsername, lblPassword, txtPassword, btnLogin, lblMessage);
         vbox.setStyle("-fx-padding: 20px;");
 
-        Scene loginScene = new Scene(vbox, 300, 200);
+        Scene loginScene = new Scene(vbox, 320, 620);
         loginScene.getStylesheets().add(getClass().getResource("/css/login.css").toExternalForm());
 
         return loginScene;
