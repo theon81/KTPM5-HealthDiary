@@ -8,11 +8,8 @@ public class DietPlan {
     private Date startDate;
     private Date endDate;
 
-    // Constructor mặc định
-    public DietPlan() {
-    }
+    public DietPlan() {}
 
-    // Constructor có tham số
     public DietPlan(int planId, String userId, Date startDate, Date endDate) {
         this.planId = planId;
         this.userId = userId;
@@ -20,7 +17,6 @@ public class DietPlan {
         this.endDate = endDate;
     }
 
-    // Getter và Setter
     public int getPlanId() {
         return planId;
     }
@@ -53,28 +49,24 @@ public class DietPlan {
         this.endDate = endDate;
     }
 
-    // Phương thức để thêm kế hoạch ăn uống
     public void addPlan(Date startDate, Date endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
         System.out.println("Kế hoạch ăn uống đã được thêm từ: " + startDate + " đến " + endDate);
     }
 
-    // Phương thức để cập nhật kế hoạch ăn uống
     public void updatePlan(Date newStartDate, Date newEndDate) {
         this.startDate = newStartDate;
         this.endDate = newEndDate;
         System.out.println("Kế hoạch ăn uống đã được cập nhật từ: " + newStartDate + " đến " + newEndDate);
     }
 
-    // Phương thức để xóa kế hoạch ăn uống
     public void deletePlan() {
         this.startDate = null;
         this.endDate = null;
         System.out.println("Kế hoạch ăn uống đã bị xóa.");
     }
 
-    // Phương thức để xem kế hoạch ăn uống
     public void viewPlan() {
         if (startDate != null && endDate != null) {
             System.out.println("Kế hoạch ăn uống từ: " + startDate + " đến " + endDate);
