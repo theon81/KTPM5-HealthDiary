@@ -44,12 +44,12 @@ public class OtherUser extends User {
     }
 
     // Ghi đè phương thức viewProfile từ lớp User
-    @Override
-    public void viewProfile() {
-        if (this.getLimit() > 0) {
-            super.viewProfile(); // Gọi phương thức của lớp cha
-        } else {
-            System.out.println("Không thể xem thông tin cá nhân vì bạn đã hết lượt.");
-        }
-    }
+    // @Override
+    // public void viewProfile() {
+    //     if (this.getLimit() > 0) {
+    //         super.viewProfile(); // Gọi phương thức của lớp cha
+    //     } else {
+    //         System.out.println("Không thể xem thông tin cá nhân vì bạn đã hết lượt.");
+    //     }
+    // }
 }
