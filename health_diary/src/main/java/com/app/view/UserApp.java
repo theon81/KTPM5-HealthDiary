@@ -2,6 +2,7 @@ package com.app.view;
 
 import com.app.controller.UserController;
 import com.app.model.User;
+
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
@@ -10,9 +11,9 @@ public class UserApp extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        primaryStage.setTitle("Login");
+        primaryStage.setTitle("User Login");
 
-        // Create the User object and UserController
+        // create the User object and UserController
         User user = new User();
         user.setID("001");
         user.setRoles("Admin");
@@ -21,7 +22,7 @@ public class UserApp extends Application {
 
         UserController userController = new UserController(user);
 
-        // Display the login scene
+        // display the login scene
         Scene loginScene = userController.createLoginScene(primaryStage);
         primaryStage.setScene(loginScene);
         primaryStage.show();

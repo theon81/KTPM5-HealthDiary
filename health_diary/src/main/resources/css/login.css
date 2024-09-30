@@ -3,6 +3,9 @@
     -fx-text-fill: white;
     -fx-font-size: 14px;
     -fx-padding: 10px;
+
+    -fx-content-display: flex;
+    -fx-justify-content: center;
 }
 
 .label {
