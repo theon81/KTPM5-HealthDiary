@@ -4,6 +4,7 @@ public class User {
     private String Roles;
     private String Username;
     private String Password;
+    private boolean statusLogin = false;
 
     public User() {
     }
@@ -48,10 +49,9 @@ public class User {
         this.Password = Password;
     }
 
-    private boolean statusLogin = false;
-
+    
     public void login (String Username, String Password){
-        if (this.Username.equals(Username)&& this.Password.equals(Password)){
+        if (this.getUsername().equals(Username)&& this.getPassword().equals(Password)){
             statusLogin = true;
             System.out.println("Đăng nhập thành công");
         }
@@ -68,16 +68,13 @@ public class User {
             System.out.println("Bạn chưa đăng nhập!");
         }
     }
-    public void viewProfile(){
+    public String viewProfile(){
         if(statusLogin = true){
-            System.out.println("THÔNG TIN CÁ NHÂN");
-            System.out.println("ID: " +ID);
-            System.out.println("Role: " +Roles);
-            System.out.println("Name: " +Username);
+            String Info;
+            Info = this.getID() + "</acc>" + this.getUsername() + "</acc>" + this.getRoles();
+            return Info;
         }
-        else{
-            System.out.println("Vui lòng đăng nhập!");
-        }
+        return "";
     }
     public static void main(String[] args) {
         User user = new User();
