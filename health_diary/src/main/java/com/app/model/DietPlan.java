@@ -1,58 +1,63 @@
 package com.app.model;
 
-import java.util.Date;
+import java.util.ArrayList;
 
 public class DietPlan {
     private int planId;
-    private String userId;
+    private String namePlan;
     private Date startDate;
     private Date endDate;
+    private ArrayList<OtherUser> userList;
 
     public DietPlan() {}
 
-    public DietPlan(int planId, String userId, Date startDate, Date endDate) {
+    public DietPlan(int planId,String namePlan, Date startDate, Date endDate) {
         this.planId = planId;
-        this.userId = userId;
+        this.namePlan = namePlan;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.userList = new ArrayList<>();
     }
 
     public int getPlanId() {
         return planId;
     }
 
+    public String getName() {
+        return namePlan;
+    }
+    
+    
+    public Date getStartDate() {
+        return startDate;
+    }
+    
+    public Date getEndDate() {
+        return endDate;
+    }
+    
+    public String getUserList(){
+        String mt =""; 
+        for(OtherUser x:userList){
+            mt = mt + x.getIF() + "<lc>";
+        }
+        return mt;
+    }
+
     public void setPlanId(int planId) {
         this.planId = planId;
     }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public Date getStartDate() {
-        return startDate;
+    
+    public void setName(String namePlan) {
+        this.namePlan = namePlan;
     }
 
     public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
-        return endDate;
-    }
-
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
-    }
-
-    public void addPlan(Date startDate, Date endDate) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        System.out.println("Kế hoạch ăn uống đã được thêm từ: " + startDate + " đến " + endDate);
     }
 
     public void updatePlan(Date newStartDate, Date newEndDate) {
@@ -61,17 +66,8 @@ public class DietPlan {
         System.out.println("Kế hoạch ăn uống đã được cập nhật từ: " + newStartDate + " đến " + newEndDate);
     }
 
-    public void deletePlan() {
-        this.startDate = null;
-        this.endDate = null;
-        System.out.println("Kế hoạch ăn uống đã bị xóa.");
-    }
-
-    public void viewPlan() {
-        if (startDate != null && endDate != null) {
-            System.out.println("Kế hoạch ăn uống từ: " + startDate + " đến " + endDate);
-        } else {
-            System.out.println("Không có kế hoạch ăn uống nào.");
-        }
+    public String viewPlan() {
+        
+        return "";
     }
 }

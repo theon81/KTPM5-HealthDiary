@@ -43,6 +43,11 @@ public class OtherUser extends User {
         }
     }
 
+    public String getIF(){
+        String info;
+        info = this.getID() + "<ot>" + this.getUsername() + "<ot>";
+        return info;
+    }
     // Ghi đè phương thức viewProfile từ lớp User
     // @Override
     // public void viewProfile() {

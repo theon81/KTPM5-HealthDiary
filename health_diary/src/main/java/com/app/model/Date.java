@@ -70,7 +70,7 @@ public class Date {
             System.out.println(e.getMessage());
         }
         if (this.getDay() == -1 || this.getMonth() == -1 || this.getYear() == -1 || !isValidDate) {
-            return "NULL/NULL/NULL";
+            return "NULL";
         } 
         return String.format("%02d/%02d/%d", day, month, year);
     }
