@@ -1,0 +1,32 @@
+#main-background {
+    -fx-background-color: #E3FEF7;
+}
+
+#menu-diary-label {
+    -fx-text-fill: #003C43;
+}
+
+.bottom-nav-button-icon {
+    -fx-fill: #E3FEF7;
+}
+
+.menu-show {
+    -fx-background-color: #77B0AA;
+    -fx-background-radius: 12px 80px 12px 12px;
+}
+
+#water-consumption-percent {
+    -fx-text-fill: #003C43;
+}
+
+#bottom-nav {
+    -fx-background-color: #77B0AA;
+    -fx-background-radius: 17px 17px 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 30, 0, 0, 4);
+    -fx-blend-mode: normal;
+
+    -fx-end-margin: 10px;
+
+    sticky: true;
+    -fx-z-index: 100;
+}
