@@ -117,13 +117,17 @@ public class Time {
     public String getTime(){
         String Time;
         if ((this.getHour() == -1 )|| (this.getMinute() == -1) || (this.getSecond() == -1)) {
-            Time = "NaN:NaN:NaN";
-            return Time;
-        } else{
-            Time = this.getHour() + ":" + this.getMinute() + ":" +this.getSecond();
-        }
-        return Time;
+            return  "NaN:NaN:NaN";
+        } 
+        return String.format("%02d:%02d:%02d", hour,minute,second);
     }
-
-    
+    public static void main(String[] args) {
+        Time testTime = new Time(23,59,59);
+        String mt;
+        mt = testTime.getTime();
+        System.out.println(mt);
+        testTime.changeTime();
+        mt = testTime.getTime();
+        System.out.println(mt);
+    }
 }
