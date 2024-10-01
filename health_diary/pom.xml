@@ -20,12 +20,15 @@
             <artifactId>javafx-controls</artifactId>
             <version>19</version>
         </dependency>
+        
+        <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+            <version>8.2</version>
+        </dependency>
     </dependencies>
-    <dependency>
-    <groupId>de.jensd</groupId>
-    <artifactId>fontawesomefx</artifactId>
-    <version>8.2</version>
-</dependency>
+
+    
     <build>
         <plugins>
             <plugin>
