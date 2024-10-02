@@ -1,0 +1,16 @@
+.button {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.label {
+    font-size: 14px;
+    padding: 5px;
+}
+
+.text-field {
+    font-size: 12px;
+    padding: 5px;
+}
