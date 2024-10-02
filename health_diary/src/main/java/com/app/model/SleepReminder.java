@@ -3,15 +3,13 @@ package com.app.model;
 public class SleepReminder {
     private int reminderId;
     private String userId;
-    private String time; // Giả sử định dạng HH:MM:SS
+    private String time; 
     private boolean active;
 
-    // Constructor mặc định
     public SleepReminder() {
-        this.active = false; // Mặc định là không hoạt động
+        this.active = false; 
     }
 
-    // Constructor có tham số
     public SleepReminder(int reminderId, String userId, String time, boolean active) {
         this.reminderId = reminderId;
         this.userId = userId;
@@ -19,7 +17,6 @@ public class SleepReminder {
         this.active = active;
     }
 
-    // Getter và Setter
     public int getReminderId() {
         return reminderId;
     }
@@ -52,14 +49,12 @@ public class SleepReminder {
         this.active = active;
     }
 
-    // Phương thức để đặt lời nhắc
     public void setReminder(String time) {
         this.time = time;
         this.active = true;
         System.out.println("Lời nhắc ngủ đã được đặt vào lúc: " + time);
     }
 
-    // Phương thức cập nhật lời nhắc
     public void updateReminder(String newTime) {
         if (active) {
             this.time = newTime;
@@ -69,7 +64,6 @@ public class SleepReminder {
         }
     }
 
-    // Phương thức để tắt lời nhắc
     public void disableReminder() {
         this.active = false;
         System.out.println("Lời nhắc ngủ đã bị tắt.");

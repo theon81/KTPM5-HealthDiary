@@ -2,9 +2,8 @@ package com.app.model;
 
 import java.util.ArrayList;
 
-import javafx.scene.chart.PieChart;
-
 public class Admin extends User{
+    // listPlan để lưu các plan hiển thị cho người dùng 
     private static ArrayList<DietPlan> planList;
     
     private Admin(){}
@@ -16,37 +15,54 @@ public class Admin extends User{
         }
     }
 
-    public void addPlan(int planId, String namePlab , Date startDate, Date endDate ){
+    public void addPlan(String namePlan , Date startDate, Date endDate ){ 
         int planId = planList.size();
-        DietPlan newPlan = new DietPlan(planId, namePlab ,startDate, endDate);
-        planList.add(newPlan);
-        
+
+        for (int i = 0; i < planId; i++){
+            if (planList.get(i) == null) {
+                planId = i;
+                break;
+            }
+        }
+        DietPlan newPlan = new DietPlan(planId, namePlan, startDate, endDate);
+        if (planId < planList.size()) {
+            planList.set(planId, newPlan); 
+        } else {
+            planList.add(newPlan);
+        }
+        System.out.println("Add plan success ID: " +planId);
     }
 
     public void removePlan(int planId){
-        for (int i = 0; i <planList.size(); i++){
+        int x = planList.size();
+        for (int i = 0; i < x; i++){
             if (planList.get(i).getPlanId() == planId){
                 planList.remove(i);
-                for (int j = i; j < planList.size(); j++){
-                    planList.get(j).setPlanId(j +1);
-                }
                 System.out.println("Remove success");
                 break;
             }
         }
     }
 
-    public String dataPlan(){
+    public String dataPlan() {
         StringBuilder data = new StringBuilder();
         for (DietPlan x : planList) {
-            data.append("ID: ")
-                .append("User: ")
-                .append(getUsername())
-                .append("Start: ").append(x.getStartDate())
-                .append("End: ").append(x.getEndDate());
+            if (x != null) {
+                data.append(x.getPlanId()).append("</ad>")
+                    .append(x.getNamePlan()).append("</ad>")
+                    .append(x.getStartDate()).append("</ad>")
+                    .append(x.getEndDate()).append("</ad>");
+            }
         }
-        return data.toString();
+        return data.toString().trim();
     }
+    // đâu ra 0</ad>Kiều thanh tung</ad>01/10/2024</ad>07/10/2024</ad>1</ad>Kiều thanh tung</ad>08/10/2024</ad>14/10/2024</ad>
 
+    
+// Kế hoạch 1: ID 0, Người dùng: "admin", Ngày bắt đầu: 01/10/2024, Ngày kết thúc: 07/10/2024
+// Kế hoạch 2: ID 1, Người dùng: "admin", Ngày bắt đầu: 08/10/2024, Ngày kết thúc: 14/10/2024
+// Kế hoạch 3: ID 2, Người dùng: "admin", Ngày bắt đầu: 15/10/2024, Ngày kết thúc: 21/10/2024
+// Kế hoạch 4: ID 3, Người dùng: "admin", Ngày bắt đầu: 22/10/2024, Ngày kết thúc: 28/10/2024
 
+//1 string trả về 0</ad>Kiều thanh tung </ad>01/10/2024"</ad>"07/10/2024 
 }

@@ -8,6 +8,7 @@ public class DietPlan {
     private Date startDate;
     private Date endDate;
     private ArrayList<OtherUser> userList;
+    private ArrayList<Food> foodList;
 
     public DietPlan() {}
 
@@ -17,13 +18,14 @@ public class DietPlan {
         this.startDate = startDate;
         this.endDate = endDate;
         this.userList = new ArrayList<>();
+        this.foodList = new ArrayList<>();
     }
 
     public int getPlanId() {
         return planId;
     }
 
-    public String getName() {
+    public String getNamePlan() {
         return namePlan;
     }
     
@@ -44,11 +46,22 @@ public class DietPlan {
         return mt;
     }
 
+    public String getFoodList() {
+        StringBuilder foodData = new StringBuilder();
+        for (Food food : foodList) {
+            foodData.append(food.getFood()).append("</dp>");
+        }
+        return foodData.toString();
+
+    }
+
+    
+
     public void setPlanId(int planId) {
         this.planId = planId;
     }
     
-    public void setName(String namePlan) {
+    public void setNamePlan(String namePlan) {
         this.namePlan = namePlan;
     }
 
@@ -70,4 +83,5 @@ public class DietPlan {
         
         return "";
     }
+
 }
