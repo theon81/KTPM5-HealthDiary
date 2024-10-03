@@ -1,6 +1,14 @@
 package com.app.model;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 import com.app.model.exception.DataException;
+import com.app.model.exception.TimeException;
+
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
 
 public class Time {
     private int hour;
@@ -121,13 +129,49 @@ public class Time {
         } 
         return String.format("%02d:%02d:%02d", hour,minute,second);
     }
+
+    public String getCurrentTime() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        LocalTime now = LocalTime.now();
+        String Time = now.format(formatter);
+        return Time;
+    }
+    
+    public void startClock(Time inputTime) {
+        Timeline timeline = new Timeline(
+            new KeyFrame(Duration.seconds(1), event -> {
+                String currentTime = getCurrentTime();
+                System.out.println("Giờ hiện tại: " + currentTime);
+                try {
+                    compareInputWithCurrentTime(inputTime);
+                } catch (TimeException e) {
+                    System.out.println("Lỗi: " + e.getMessage());
+                }
+            })
+        );
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
+    }
+
+    public void compareInputWithCurrentTime(Time inputTime) throws TimeException {
+        String currentTime = getCurrentTime(); // Lấy thời gian hiện tại
+        String inputTimeString = inputTime.getTime(); // Lấy thời gian nhập vào
+
+        if (currentTime.equals(inputTimeString)) {
+            throw new TimeException();
+        }
+    }
+
     public static void main(String[] args) {
-        Time testTime = new Time(23,59,59);
+        Time testTime = new Time(10,51,00);
         String mt;
         mt = testTime.getTime();
         System.out.println(mt);
-        testTime.changeTime();
-        mt = testTime.getTime();
-        System.out.println(mt);
+        // System.out.println(mt);
+        // testTime.changeTime();
+        // mt = testTime.getTime();
+        // System.out.println(mt);
+        Time test = new Time();
+        System.out.println(test.getCurrentTime());
     }
 }
