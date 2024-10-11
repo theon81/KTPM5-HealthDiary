@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "Account")
+@Table(name = "`Account`") // Đảm bảo tên bảng trong cơ sở dữ liệu là Account (có chữ A viết hoa)
 public class User {
 
     @Id
@@ -17,7 +17,7 @@ public class User {
     @Column(name = "ID")
     private Long id;
 
-    @Column(name = "Roles")
+    @Column(name = "Roles", nullable = false)
     private boolean roles;
 
     @Column(name = "Username", nullable = false, unique = true)
@@ -29,9 +29,11 @@ public class User {
     @Transient
     private boolean statusLogin = false;
 
+    // Constructor mặc định
     public User() {
     }
 
+    // Constructor đầy đủ tham số
     public User(Long id, boolean roles, String username, String password) {
         this.id = id;
         this.roles = roles;
@@ -72,10 +74,8 @@ public class User {
         this.password = password;
     }
 
-    // Phương thức đăng nhập
+    // Phương thức kiểm tra đăng nhập (logic sẽ do service thực hiện)
     public void login(String username, String password) {
-        // Logic đăng nhập sẽ cần sử dụng EntityManager để tìm kiếm trong CSDL
-        // Đoạn code này chỉ là mô phỏng
         if (this.username.equals(username) && this.password.equals(password)) {
             statusLogin = true;
             System.out.println("Đăng nhập thành công");
@@ -103,17 +103,12 @@ public class User {
         return "";
     }
 
-    public static void main(String[] args) {
-        User user = new User(1L, true, "admin", "password123");
+    // Phương thức kiểm tra trạng thái đăng nhập
+    public boolean isStatusLogin() {
+        return statusLogin;
+    }
 
-        System.out.println("---- Kiểm tra đăng nhập thành công ----");
-        user.login("admin", "password123");
-        System.out.println(user.viewProfile());
-
-        System.out.println("---- Kiểm tra đăng nhập thất bại ----");
-        user.login("admin", "wrongpass");
-
-        System.out.println("---- Kiểm tra đăng xuất ----");
-        user.logout();
+    public void setStatusLogin(boolean statusLogin) {
+        this.statusLogin = statusLogin;
     }
 }
