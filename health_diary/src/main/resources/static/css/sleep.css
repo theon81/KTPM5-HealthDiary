@@ -1,0 +1,66 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-image: url(../media/pexels-dushenkovsky-4100130.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    width: 80vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    overflow: hidden;
+
+    background: rgba(35, 45, 63, 0.51);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.4px);
+    -webkit-backdrop-filter: blur(10.4px);
+}
+
+.tab {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tab h2 {
+    margin-bottom: 20px;
+}
+
+.tab label {
+    margin: 10px 0;
+}
+
+.tab input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tab button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.tab button:hover {
+    background-color: #0056b3;
+}
