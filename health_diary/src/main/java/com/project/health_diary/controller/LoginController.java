@@ -16,16 +16,13 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    // Hiển thị trang đăng nhập
-    @GetMapping("/")
-    public String login(Model model) {
-        return "signin"; // Trả về trang đăng nhập
-    }
+    
 
     // Xử lý đăng nhập
     @PostMapping("/signin")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         // Kiểm tra nếu username hoặc password trống
+<<<<<<< HEAD
         if (username.trim().isEmpty() || password.trim().isEmpty()) {
             model.addAttribute("error", "Tên đăng nhập và mật khẩu không được để trống.");
             return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
@@ -41,37 +38,44 @@ public class LoginController {
             // Thông báo lỗi nếu đăng nhập thất bại
             model.addAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng.");
             return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
+=======
+        boolean isLogin = userService.login(username, password);
+        if(isLogin){
+            return "redirect:/home";
+>>>>>>> K.T.Tung
         }
+        return "redirect:/";
     }
 
-    // Hiển thị trang đăng ký
-    @GetMapping("/signup")
-    public String showRegisterForm(Model model) {
-        return "signin"; // Quay lại trang đăng nhập, có thể thêm logic hiển thị form đăng ký
-    }
+    // // Hiển thị trang đăng ký
+    // @GetMapping("/signup")
+    // public String showRegisterForm(Model model) {
+    //     return "signin"; // Quay lại trang đăng nhập, có thể thêm logic hiển thị form đăng ký
+    // }
 
-    // Xử lý đăng ký
-    @PostMapping("/signup")
-    public String register(@RequestParam String username, @RequestParam String password, @RequestParam boolean roles, Model model) {
-        // Kiểm tra nếu username hoặc password trống
-        if (username.trim().isEmpty() || password.trim().isEmpty()) {
-            model.addAttribute("error", "Tên đăng nhập và mật khẩu không được để trống.");
-            return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
-        }
+    // // Xử lý đăng ký
+    // @PostMapping("/signup")
+    // public String register(@RequestParam String username, @RequestParam String password, @RequestParam boolean roles, Model model) {
+    //     // Kiểm tra nếu username hoặc password trống
+    //     if (username.trim().isEmpty() || password.trim().isEmpty()) {
+    //         model.addAttribute("error", "Tên đăng nhập và mật khẩu không được để trống.");
+    //         return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
+    //     }
 
-        // Kiểm tra nếu tên đăng nhập đã tồn tại
-        if (userService.findByUsername(username) != null) {
-            model.addAttribute("error", "Tên đăng nhập đã tồn tại.");
-            return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
-        }
+    //     // Kiểm tra nếu tên đăng nhập đã tồn tại
+    //     if (userService.findByUsername(username) != null) {
+    //         model.addAttribute("error", "Tên đăng nhập đã tồn tại.");
+    //         return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
+    //     }
 
-        // Tạo tài khoản mới và lưu vào cơ sở dữ liệu
-        User newUser = new User();
-        newUser.setUsername(username);
-        newUser.setPassword(password);
-        newUser.setRoles(roles);
-        userService.save(newUser);
+    //     // Tạo tài khoản mới và lưu vào cơ sở dữ liệu
+    //     User newUser = new User();
+    //     newUser.setUsername(username);
+    //     newUser.setPassword(password);
+    //     newUser.setRoles(roles);
+    //     userService.save(newUser);
         
-        return "redirect:/"; // Điều hướng về trang đăng nhập sau khi đăng ký thành công
-    }
+    //     return "redirect:/"; // Điều hướng về trang đăng nhập sau khi đăng ký thành công
+    // }
+    
 }

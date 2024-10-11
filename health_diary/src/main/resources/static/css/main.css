@@ -8,16 +8,56 @@ body{
     position: relative;
 }
 nav {
-    position: absolute;
+    position: fixed;
     height: 100px;
     top: 0;
     left: 0;
     right: 0;
-    background-color: aquamarine;
+    background-color: rgba(255, 255, 255, 0.4);
+    display: flex;
+
+    overflow: hidden;
 }
+nav #nav-avt{
+    width: 20%;
+    height: 100%;
+    background-color: aqua;
+}
+nav #nav-button-box{
+    width: 80%;
+    height: 100%;
+
+    /* background-color: blue; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav #nav-button-box #nav-button-item{
+    width: 10%;
+    height: 100%;
+
+    margin: 0 10px;
+    background-color: chartreuse;
+}
+nav #nav-button-box #nav-button-item:nth-child(1){
+    /* justify-self: flex-start; */
+    width: 20%;
+    margin-right: 130px;
+    margin-left: 0;
+}
+nav #nav-button-box #nav-button-item:nth-last-child(1){
+    margin-right: 5px;
+    margin-left: 140px;
+    background-color: aqua !important;
+}
+
 #container {
     width: 100%;
     height: 100vh;
 
-    /* background-color: red; */
+    background-color: red;
+
+    box-sizing: border-box;
+    padding-top: 100px;
 }

@@ -5,23 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Diary</title>
 
-    <link rel="stylesheet" href="../static/css/main.css">
-    
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav>
-        <div id="nav-logo"></div>
         <div id="nav-button-box">
-            <div id="nav-button-item"></div>
-            <div id="nav-button-item"></div>
-            <div id="nav-button-item"></div>
-            <div id="nav-button-item"></div>
-            <div id="nav-button-item"></div>
+            <a href="" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <a href="/userinfo" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <a href="/water" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <a href="/sleep" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <a href="/dietplan" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <a href="" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
         </div>
         <div id="nav-avt"></div>
     </nav>
     <main>
-        <iframe src="html/userinfo.html" frameborder="0" id="container"></iframe>
+        <iframe name="container" id="container" frameborder="0" width="100%" height="600px"></iframe>
     </main>
+    <!-- <script th:src="@{/js/navigation.js}" src="../static/js/navigation.js"></script> --> 
 </body>
 </html>
