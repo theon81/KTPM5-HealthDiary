@@ -9,22 +9,20 @@
             padding: 0;
             margin: 0;
         }
-        body{
+        body {
             width: 100%;
             height: 100%;
         }
-        #container{
+        #container {
             width: 100%;
             height: 100vh;
-
             display: flex;
             justify-content: center;
             align-items: center;
         }
-        #container-content{
+        #container-content {
             width: 70%;
             height: 50%;
-
             background-color: aqua;
             display: flex;
         }
@@ -32,10 +30,17 @@
             width: 40%;
             height: 100%;
         }
-        form{
+        form {
             width: 60%;
             height: 100%;
             background-color: red;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        input, button, a {
+            margin: 5px;
         }
     </style>
 </head>
@@ -43,7 +48,14 @@
     <div id="container">
         <div id="container-content">
             <div id="method"></div>
-            <form action=""></form>
+            <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+                <a href="/register">Register</a>
+                <!-- in ra thông báo lỗi -->
+                <p th:if="${error}" th:text="${error}" style="color: red;"></p> 
+            </form>
         </div>
     </div>
 </body>
