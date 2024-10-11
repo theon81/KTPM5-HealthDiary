@@ -3,5 +3,6 @@
         "ktpm/src",
         "health_diary/src/main/java/com/app/view"
     ],
-    "java.configuration.updateBuildConfiguration": "automatic"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic"
 }
