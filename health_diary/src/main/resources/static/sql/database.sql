@@ -1,31 +1,25 @@
-create database health_diary;
+-- Active: 1728617603603@@mysql-health-diary-final-report.l.aivencloud.com@10536@defaultdb
+-- Create the health_diary database and switch to it
+CREATE DATABASE IF NOT EXISTS Health_Diary;
+USE Health_Diary;
 
-create table Account (
-    ID bigint not null auto_increment,
-    Roles boolean not null,
-    Username varchar(255) not null,
-    Password varchar(255) not null,
+-- Create the Account table
+CREATE TABLE IF NOT EXISTS Account (
+    ID BIGINT NOT NULL AUTO_INCREMENT,
+    Roles BOOLEAN NOT NULL,
+    Username VARCHAR(255) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
     PRIMARY KEY (ID)
 );
 
-create table DietPlan (
-    planId bigint not null auto_increment,
-    startDate date not null,
-    endDate date not null,
-    namePlan varchar(255) not null,
-    primary key (planId)
+-- Create the DietPlan table
+CREATE TABLE IF NOT EXISTS DietPlan (
+    planId BIGINT NOT NULL AUTO_INCREMENT,
+    startDate DATE NOT NULL,
+    endDate DATE NOT NULL,
+    namePlan VARCHAR(255) NOT NULL,
+    PRIMARY KEY (planId)
 );
 
-create table WaterConsumption (
-    waterId bigint not null auto_increment,
-    date date not null,
-    amount int not null,
-    Foreign Key (ID) REFERENCES (Account.ID),
-);
-
-create table UserInfo (
-    Foreign Key (ID) REFERENCES (Account.ID),
-    Foreign Key (planId) REFERENCES (DietPlan.planId),
-    Foreign Key (waterId) REFERENCES (WaterConsumption.waterId)
-
-);
+select * from Account;
+select * from DietPlan;
