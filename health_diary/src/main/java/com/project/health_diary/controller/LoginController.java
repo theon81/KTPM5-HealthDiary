@@ -22,27 +22,9 @@ public class LoginController {
     @PostMapping("/signin")
     public String login(@RequestParam String username, @RequestParam String password, Model model) {
         // Kiểm tra nếu username hoặc password trống
-<<<<<<< HEAD
-        if (username.trim().isEmpty() || password.trim().isEmpty()) {
-            model.addAttribute("error", "Tên đăng nhập và mật khẩu không được để trống.");
-            return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
-        }
-
-        // Kiểm tra thông tin đăng nhập
-        User user = userService.findByUsernameAndPassword(username, password);
-        if (user != null) {
-            // Điều hướng đến trang chính nếu đăng nhập thành công
-            model.addAttribute("username", user.getUsername());
-            return "redirect:/main"; // Trả về trang chính (main.html)
-        } else {
-            // Thông báo lỗi nếu đăng nhập thất bại
-            model.addAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng.");
-            return "signin"; // Quay lại trang đăng nhập với thông báo lỗi
-=======
         boolean isLogin = userService.login(username, password);
         if(isLogin){
             return "redirect:/home";
->>>>>>> K.T.Tung
         }
         return "redirect:/";
     }
