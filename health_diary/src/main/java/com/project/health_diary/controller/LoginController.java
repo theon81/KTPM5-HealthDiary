@@ -36,7 +36,7 @@ public class LoginController {
         if (user != null) {
             // Điều hướng đến trang chính nếu đăng nhập thành công
             model.addAttribute("username", user.getUsername());
-            return "main"; // Trả về trang chính (main.html)
+            return "redirect:/main"; // Trả về trang chính (main.html)
         } else {
             // Thông báo lỗi nếu đăng nhập thất bại
             model.addAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng.");
