@@ -4,55 +4,81 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Login & Registration Form | Codehal</title>
+  <title>Health Diary</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" type="text/css" th:href="@{/css/signin.css}" href="../static/css/signin.css">
 </head>
 <body>
+  <div class="logo">
+
+  </div>
   <div class="wrapper">
     <div class="form-wrapper sign-in">
         <form action="/signin" method="post">
           <h2>Login</h2>
+
           <div class="input-group">
             <input type="text" name="username" required>
             <label for="">Username</label>
           </div>
+
           <div class="input-group">
             <input type="password" name="password" required>
             <label for="">Password</label>
           </div>
+
           <div class="remember">
             <label><input type="checkbox"> Remember me</label>
           </div>
+
           <button type="submit">Login</button>
+
           <div class="signUp-link">
-            <p>Don't have an account? <a href="#" class="signUpBtn-link"><strong>Sign Up</strong></a></p>
+            <p>Don't have an account? 
+              <a href="#" class="signUpBtn-link">
+                <strong>
+                  Register
+                </strong>
+              </a>
+            </p>
           </div>
         </form>
       </div>
       
     <div class="form-wrapper sign-up">
       <form action="/signup" method="post">
-        <h2>Sign Up</h2>
+        <h2>Create an account</h2>
+
         <div class="input-group">
           <input type="text" name="username" required>
           <label for="username">Username</label>
         </div>
+
         <div class="input-group">
           <input type="email" name="email" required>
           <label for="email">Email</label>
         </div>
+
         <div class="input-group">
           <input type="password" name="password" required>
           <label for="password">Password</label>
         </div>
+
         <div class="remember">
           <label><input type="checkbox" name="terms"> I agree to the terms & conditions</label>
         </div>
-        <button type="submit">Sign Up</button>
+
+        <button type="submit">Register</button>
+
         <div class="signUp-link">
-          <p>Already have an account? <a href="#" class="signInBtn-link"><strong>Sign In</strong></a></p>
+          <p>Already have an account? 
+            <a href="#" class="signInBtn-link">
+              <strong>
+                Login
+              </strong>
+            </a>
+          </p>
         </div>
       </form>
     </div>
