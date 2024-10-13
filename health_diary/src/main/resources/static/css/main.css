@@ -19,12 +19,12 @@ nav {
     overflow: hidden;
 }
 nav #nav-avt{
-    width: 20%;
+    width: 15%;
     height: 100%;
     background-color: aqua;
 }
 nav #nav-button-box{
-    width: 80%;
+    width: 85%;
     height: 100%;
 
     /* background-color: blue; */
@@ -33,22 +33,32 @@ nav #nav-button-box{
     justify-content: center;
     align-items: center;
 }
+nav #button-container{
+    width: 60%;
+    height: 100%;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    background-color: aqua;
+}
+
 nav #nav-button-box #nav-button-item{
-    width: 10%;
+    width: 15%;
     height: 100%;
 
     margin: 0 10px;
     background-color: chartreuse;
 }
-nav #nav-button-box #nav-button-item:nth-child(1){
+nav #nav-button-box > #nav-button-item:nth-child(1){
     /* justify-self: flex-start; */
     width: 20%;
-    margin-right: 130px;
+    margin-right: 80px;
     margin-left: 0;
 }
-nav #nav-button-box #nav-button-item:nth-last-child(1){
+nav #nav-button-box > #nav-button-item:nth-last-child(1){
     margin-right: 5px;
-    margin-left: 140px;
+    margin-left: 100px;
     background-color: aqua !important;
 }
 
