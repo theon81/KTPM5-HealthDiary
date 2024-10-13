@@ -1,9 +1,10 @@
 package com.project.health_diary.service;
 
-import com.project.health_diary.model.User;
-import com.project.health_diary.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.project.health_diary.model.User;
+import com.project.health_diary.repository.UserRepository;
 
 @Service
 public class UserService {
@@ -19,6 +20,9 @@ public class UserService {
         return false;
     }
 
+    public User findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 
     public void save(User user) {
         userRepository.save(user);
