@@ -10,16 +10,41 @@
 </head>
 <body>
   <div class="wrapper">
-    <div class="tab">
+    <div class="tab" id="reminder-tab">
       <h2>Sleep Reminder</h2>
-      <label for="bedtime">Bedtime:</label>
-      <input type="text" id="bedtime" class="time-picker">
-      <label for="waketime">Wake Time:</label>
-      <input type="text" id="waketime" class="time-picker">
+      <div class="clock-container">
+        <svg class="clock" viewBox="0 0 100 100">
+          <circle cx="50" cy="50" r="45" stroke="#005B41" stroke-width="3" fill="none" />
+          <path class="clock-fill" d="" stroke="url(#gradient)" stroke-width="4.4" fill="none" />
+          <defs>
+            <linearGradient id="gradient" gradientTransform="rotate(90)">
+              <stop offset="0%" stop-color="#00FF00" />
+              <stop offset="100%" stop-color="#0000FF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <input type="text" id="bedtime" class="time-input" placeholder="HH:MM">
+      </div>
       <button id="set-reminder">Set Reminder</button>
+    </div>
+
+    <div class="tab" id="sleep-cycle-tab" style="display: none;">
+      <div class="sleep-cycle">
+        <span id="title">
+          <h2>
+            The average person needs 14 minutes to fall asleep!
+          </h2>
+          <p>
+            If you are in bed now, try to wake up at one of the suggested times below to feel refreshed.
+          </p>
+        </span>
+      </div>
+
+      <ul id="sleep-cycles"></ul>
     </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="../../static/js/sleep.js"></script>
+  <script src="../../static/js/clock.js"></script>
 </body>
 </html>
