@@ -2,5 +2,7 @@
     "java.project.sourcePaths": [
         "ktpm/src",
         "health_diary/src/main/java/com/app/view"
-    ]
+    ],
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "java.compile.nullAnalysis.mode": "automatic"
 }

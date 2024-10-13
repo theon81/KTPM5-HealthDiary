@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Diary</title>
+
+    <link rel="stylesheet" th:href="@{/css/main.css}" href="../static/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <nav>
+        <div id="nav-button-box">
+            <a href="" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+            <div id="button-container">
+                <a href="/userinfo" id="nav-button-item" target="container">
+                    <div ></div>
+                </a>
+                <a href="/water" id="nav-button-item" target="container">
+                    <div ></div>
+                </a>
+                <a href="/sleep" id="nav-button-item" target="container">
+                    <div ></div>
+                </a>
+                <a href="/dietplan" id="nav-button-item" target="container">
+                    <div ></div>
+                </a>
+            </div>
+            <a href="" id="nav-button-item" target="container">
+                <div ></div>
+            </a>
+        </div>
+        <div id="nav-avt"></div>
+    </nav>
+    <main>
+        <iframe name="container" id="container" frameborder="0" width="100%" height="600px"></iframe>
+    </main>
+    <!-- <script th:src="@{/js/navigation.js}" src="../static/js/navigation.js"></script> --> 
+</body>
+</html>

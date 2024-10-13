@@ -1,0 +1,160 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
+    background-image: url(../media/pexels-dushenkovsky-4100130.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.wrapper {
+    width: 80vw;
+    height: 90vh;
+
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+    overflow: hidden;
+
+    background: rgba(35, 45, 63, 0.51);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.4px);
+    -webkit-backdrop-filter: blur(10.4px);
+
+    position: relative;
+}
+
+.tab {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.5s ease;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+.tab h2 {
+    margin-bottom: 20px;
+}
+
+.tab label {
+    margin: 10px 0;
+}
+
+.tab input {
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tab button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #232D3F;
+    color: #005B41;
+    cursor: pointer;
+}
+
+.tab button:hover {
+    background-color: #0F0F0F;
+    color: #008170;
+}
+
+.tab {
+    position: absolute;
+    width: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.clock-container {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    margin-bottom: 20px;
+}
+
+.clock {
+    width: 100%;
+    height: 100%;
+}
+
+.clock-fill {
+    stroke-linecap: round; 
+}
+
+.time-input {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    background: rgba(0, 129, 112, 0.48);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+    color: #fff;
+    outline: none;
+}
+
+.time-input:active {
+    outline: none;
+}
+
+#reminder-tab {
+    transform: translateX(0);
+}
+
+#reminder-tab {
+    color: #008170;
+}
+
+#reminder-tab input {
+    width: 70%;
+    padding: 15px;
+    border-radius: 20px;
+
+    background: rgba(0, 129, 112, 0.48);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(8.8px);
+    -webkit-backdrop-filter: blur(8.8px);
+
+    border: none;
+}
+
+#sleep-cycle-tab {
+    transform: translateX(100%);
+}
+
+#reminder-tab.active {
+    transform: translateX(-100%);
+}
+
+#sleep-cycle-tab.active {
+    transform: translateX(0);
+}
+
+.tab.active {
+    transform: translateX(-100%);
+}
+
+.sleep-cycle #title h2 {
+    color: #008170;
+}

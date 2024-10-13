@@ -12,8 +12,8 @@ public class OtherUser extends User {
     }
 
     // Constructor có tham số
-    public OtherUser(String ID, String Roles, String Username, String Password, int limit) {
-        super(ID, Roles, Username, Password); // Gọi constructor của lớp cha (User)
+    public OtherUser(Long id, boolean roles, String username, String password, int limit) {
+        super(id, roles, username, password); // Gọi constructor của lớp cha (User)
         this.setLimit(limit);
     }
 
@@ -47,7 +47,7 @@ public class OtherUser extends User {
 
     public String getIF(){
         String info;
-        info = this.getID() + "<ot>" + this.getUsername() + "<ot>";
+        info = this.getId() + "<ot>" + this.getUsername() + "<ot>";
         return info;
     }
     // Ghi đè phương thức viewProfile từ lớp User

@@ -8,8 +8,8 @@ public class Admin extends User{
     
     private Admin(){}
 
-    public Admin(String ID, String Roles, String Usernam, String Password ){
-        super(ID, Roles, Usernam, Password);
+    public Admin(Long id, boolean roles, String username, String password ){
+        super(id, roles, username, password);
         if(planList == null){
             this.planList = new ArrayList<>();
         }
