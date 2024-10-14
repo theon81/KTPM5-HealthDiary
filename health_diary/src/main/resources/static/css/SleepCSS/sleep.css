@@ -4,7 +4,7 @@ body {
     align-items: center;
     height: 100vh;
     
-    background-image: url(../media/pexels-dushenkovsky-4100130.jpg);
+    background-image: url(../../media/pexels-dushenkovsky-4100130.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -21,15 +21,57 @@ body {
     flex-direction: column;
     border-radius: 40px;
     overflow: hidden;
-    gap: 40px;
 
     background: rgba(35, 45, 63, 0.51);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.4px);
     -webkit-backdrop-filter: blur(10.4px);
+}
 
+.wrapper .content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 20px;
+    height: 90%;
+
+    margin: 10px;
+}
+
+.left-tab {
+    grid-row: 1 / span 3;
+    background-color: lightblue;
+    border-radius: 16px;
+}
+
+.mid-tab {
+    grid-row: 1 / span 3;
     position: relative;
+
+    background: rgba(35, 45, 63, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(17.6px);
+    -webkit-backdrop-filter: blur(17.6px);
+    border: 1px solid rgba(35, 45, 63, 0.3);
+}
+
+.right-tab {
+    grid-row: 1 / span 3;
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    gap: 20px;
+}
+
+.right-tab-top {
+    background-color: lightgreen;
+    border-radius: 16px;
+}
+
+.right-tab-bottom {
+    background-color: lightcoral;
+    border-radius: 16px;
 }
 
 .wrapper .nav-bar {
@@ -39,16 +81,13 @@ body {
     background-color: red;
 }
 
-.tab {
-    flex: 1;
-    padding: 20px;
+.mid-tab .tab {
     display: flex;
     flex-direction: column;
     align-items: center;
     transition: transform 0.5s ease;
     width: 100%;
-    left: 0;
-    margin-top: 80px;
+    
 }
 
 .tab input {
@@ -80,8 +119,8 @@ body {
 
 .clock-container {
     position: relative;
-    width: 350px;
-    height: 350px;
+    width: 330px;
+    height: 330px;
     margin-bottom: 20px;
 }
 
@@ -116,9 +155,6 @@ body {
     outline: none;
 }
 
-#reminder-tab {
-    transform: translateX(0);
-}
 
 #reminder-tab {
     color: #008170;
@@ -135,22 +171,6 @@ body {
     -webkit-backdrop-filter: blur(8.8px);
 
     border: none;
-}
-
-#sleep-cycle-tab {
-    transform: translateX(100%);
-}
-
-#reminder-tab.active {
-    transform: translateX(-100%);
-}
-
-#sleep-cycle-tab.active {
-    transform: translateX(0);
-}
-
-.tab.active {
-    transform: translateX(-100%);
 }
 
 .sleep-cycle #title h2 {
