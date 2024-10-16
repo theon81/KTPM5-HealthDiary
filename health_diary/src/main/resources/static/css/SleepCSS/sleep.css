@@ -48,6 +48,11 @@ body {
 .mid-tab {
     grid-row: 1 / span 3;
     position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
     background: rgba(35, 45, 63, 0.8);
     border-radius: 16px;
@@ -81,13 +86,47 @@ body {
     background-color: red;
 }
 
+
 .mid-tab .tab {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+    position: relative;
     transition: transform 0.5s ease;
     width: 100%;
-    
+}
+
+#reminder-tab {
+    transform: translateY(0);
+}
+
+#sleep-cycle-tab {
+    transform: translateY(100%);
+}
+
+.mid-tab.active #reminder-tab {
+    transform: translateY(-100%);
+}
+
+.mid-tab.active #sleep-cycle-tab {
+    transform: translateY(-100%);
+}
+
+.tab .sleep-cycle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.sleep-cycle p {
+    color: #008170;
+}
+
+.sleep-cycle ul {
+    color: #008170;
 }
 
 .tab input {
