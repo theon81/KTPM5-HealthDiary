@@ -17,10 +17,11 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "DietPlan")
+@Table(name = "dietplan")
 public class DietPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "planId")
     private int planId;
 
     @Column(name = "namePlan", nullable = false)
@@ -35,26 +36,28 @@ public class DietPlan {
     @Column(name = "endDate")
     private Date endDate;
 
+    @Column(name = "userId")
+    private int useid;
     // Quan hệ Many-to-One giữa DietPlan và User
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userId")
-    private User user;
+    // @ManyToOne(fetch = FetchType.LAZY)
+    // @JoinColumn(name = "userId")
+    // private User user;
 
     // Quan hệ One-to-Many giữa DietPlan và Food
-    @OneToMany(mappedBy = "dietPlan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Food> foodList = new ArrayList<>();
+    // @OneToMany(mappedBy = "dietPlan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    // private List<Food> foodList = new ArrayList<>();
 
     // Constructor không tham số
     public DietPlan() {}
 
     // Constructor có tham số
-    public DietPlan(int planId, String namePlan, String typePlan, Date startDate, Date endDate, User user) {
+    public DietPlan(int planId, String namePlan, String typePlan, Date startDate, Date endDate) {
         this.planId = planId;
         this.namePlan = namePlan;
         this.typePlan = typePlan;
         this.startDate = startDate;
         this.endDate = endDate;
-        this.user = user;
+        // this.user = user;
     }
 
     // Getter và Setter cho các thuộc tính
@@ -98,31 +101,31 @@ public class DietPlan {
         this.endDate = endDate;
     }
 
-    public User getUser() {
-        return user;
-    }
+    // public User getUser() {
+    //     return user;
+    // }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+    // public void setUser(User user) {
+    //     this.user = user;
+    // }
 
-    public List<Food> getFoodList() {
-        return foodList;
-    }
+    // public List<Food> getFoodList() {
+    //     return foodList;
+    // }
 
-    public void setFoodList(List<Food> foodList) {
-        this.foodList = foodList;
-    }
+    // public void setFoodList(List<Food> foodList) {
+    //     this.foodList = foodList;
+    // }
 
     // Phương thức thêm Food vào danh sách
-    public void addFood(Food food) {
-        foodList.add(food);
-        food.setDietPlan(this); // Thiết lập quan hệ ngược
-    }
+    // public void addFood(Food food) {
+    //     foodList.add(food);
+    //     food.setDietPlan(this); // Thiết lập quan hệ ngược
+    // }
 
     // Phương thức loại bỏ Food khỏi danh sách
-    public void removeFood(Food food) {
-        foodList.remove(food);
-        food.setDietPlan(null); // Gỡ quan hệ
-    }
+    // public void removeFood(Food food) {
+    //     foodList.remove(food);
+    //     food.setDietPlan(null); // Gỡ quan hệ
+    // }
 }

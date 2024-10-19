@@ -24,7 +24,7 @@ public class Admin extends User{
                 break;
             }
         }
-        DietPlan newPlan = new DietPlan(planId, namePlan, typePlan, startDate, endDate, user);
+        DietPlan newPlan = new DietPlan(planId, namePlan, typePlan, startDate, endDate);
         if (planId < planList.size()) {
             planList.set(planId, newPlan);
         } else {
