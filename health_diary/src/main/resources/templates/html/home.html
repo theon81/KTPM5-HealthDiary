@@ -12,47 +12,88 @@
     <div class="wrapper">
         <nav>
             <div id="nav-button-box">
-                <a href="/userinfo" id="nav-button-item" target="home-container">
-                    <div >
-                        <i class="fa-solid fa-house-chimney"></i>
-                    </div>
-                </a>
-
-                <div id="button-container">
-                    <a href="/water" id="nav-button-item" target="home-container">
-                        <div >
+                <div class="button-container" id="left">
+                    <a href="/userinfo" id="nav-home" class="nav-item" target="home-container">
+                        <div>
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                    </a>
+                </div>
+        
+                <div class="button-container" id="center">
+                    <a href="/water" id="nav-water" class="nav-item" target="home-container">
+                        <div>
                             <i class="fa-solid fa-glass-water-droplet"></i>
                         </div>
                     </a>
-
-                    <a href="/sleep" id="nav-button-item" target="home-container">
-                        <div >
+        
+                    <a href="/sleep" id="nav-sleep" class="nav-item" target="home-container">
+                        <div>
                             <i class="fa-solid fa-moon"></i>
                         </div>
                     </a>
-
-                    <a href="/dietDEMO" id="nav-button-item" target="home-container">
-                        <div >
+        
+                    <a href="/dietDEMO" id="nav-diet" class="nav-item" target="home-container">
+                        <div>
                             <i class="fa-brands fa-pagelines"></i>
                         </div>
                     </a>
                 </div>
-                <a href="/notif" id="nav-button-item" target="home-container">
-                    <div >
-                        <i class="fa-regular fa-bell"></i>
+        
+                <div class="button-container" id="right">
+                    <div id="nav-avt">
+                        <div class="avt-info">
+                            <div class="user-name">
+                                <p>Théon</p>
+                            </div>
+                        </div>
+                        <div class="avt-img"></div>
                     </div>
-                </a>
-            </div>
 
-            <div id="nav-avt">
-                <div class="avt-img"></div>
-                <div class="avt-info">
-                    <div class="user-name"></div>
+                    <a href="/notif" id="nav-notif" class="nav-item" target="home-container">
+                        <div>
+                            <i class="fa-regular fa-bell"></i>
+                        </div>
+                    </a>
                 </div>
             </div>
         </nav>
 
         <iframe src="" frameborder="0" id="home-container" name="home-container"></iframe>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navItems = document.querySelectorAll('.nav-item');
+            const iframe = document.getElementById('home-container');
+    
+            const updateActiveNavItem = () => {
+                const currentSrc = iframe.contentWindow.location.href;
+                navItems.forEach(item => item.classList.remove('active'));
+    
+                if (currentSrc.includes('/userinfo')) {
+                    document.getElementById('nav-home').classList.add('active');
+                } else if (currentSrc.includes('/water')) {
+                    document.getElementById('nav-water').classList.add('active');
+                } else if (currentSrc.includes('/sleep')) {
+                    document.getElementById('nav-sleep').classList.add('active');
+                } else if (currentSrc.includes('/dietDEMO')) {
+                    document.getElementById('nav-diet').classList.add('active');
+                } else if (currentSrc.includes('/notif')) {
+                    document.getElementById('nav-notif').classList.add('active');
+                }
+            };
+    
+            navItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    navItems.forEach(nav => nav.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+    
+            iframe.addEventListener('load', updateActiveNavItem);
+            updateActiveNavItem(); // Initial call to set the active item on page load
+        });
+    </script>
 </body>
 </html>
