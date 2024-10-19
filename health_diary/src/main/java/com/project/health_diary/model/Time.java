@@ -6,10 +6,6 @@ import java.time.format.DateTimeFormatter;
 import com.project.health_diary.model.exception.DataException;
 import com.project.health_diary.model.exception.TimeException;
 
-
-
-
-
 public class Time {
     private int hour;
     private int minute;

@@ -61,7 +61,7 @@
         <div class="sleep" >
             <div class="sleep-time">
                 <span class="bedtime">Bedtime:</span>
-                <span class="time-number">11:00</span>
+                <span class="time-number">--:--</span>
                 <span class="am-pm">PM</span>
             </div>
         </div>
@@ -141,5 +141,6 @@
         updateDateTime();
         setInterval(updateDateTime, 60000); // Update every minute
     </script>
+    <script th:src="@{/js/userinfo.js}" src="../../static/js/userinfo.js"></script>
 </body>
 </html>

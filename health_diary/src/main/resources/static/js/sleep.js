@@ -8,7 +8,21 @@ document.addEventListener('DOMContentLoaded', function() {
   
 document.getElementById('set-reminder').addEventListener('click', function() {
     const bedtime = document.getElementById('bedtime').value;
-
+    fetch('/set-reminder',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: 'bedtime=' + encodeURIComponent(bedtime)
+    }).then(response => {
+        if(response.ok){
+            alert('Time save successfully');
+        } else {
+            alert('There was a problem saving the time.');
+        }
+    }).catch(error => {
+        console.error('Error:', error);
+    });
     if (bedtime) {
         const bedtimeParts = bedtime.split(':');
         const bedtimeHours = parseInt(bedtimeParts[0], 10);

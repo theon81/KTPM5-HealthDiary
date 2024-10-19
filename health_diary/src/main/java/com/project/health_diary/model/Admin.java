@@ -1,11 +1,12 @@
 package com.project.health_diary.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Admin extends User{
     // listPlan để lưu các plan hiển thị cho người dùng 
-    private static ArrayList<DietPlan> planList;
-    
+    private List<DietPlan> planList = new ArrayList<>();    
     private Admin(){}
 
     public Admin(Long id, boolean roles, String username, String password ){
@@ -15,28 +16,27 @@ public class Admin extends User{
         }
     }
 
-    public void addPlan(String namePlan , Date startDate, Date endDate ){ 
+    public void addPlan(String namePlan, String typePlan, Date startDate, Date endDate, User user) {
         int planId = planList.size();
-
-        for (int i = 0; i < planId; i++){
+        for (int i = 0; i < planId; i++) {
             if (planList.get(i) == null) {
                 planId = i;
                 break;
             }
         }
-        DietPlan newPlan = new DietPlan(planId, namePlan, startDate, endDate);
+        DietPlan newPlan = new DietPlan(planId, namePlan, typePlan, startDate, endDate);
         if (planId < planList.size()) {
-            planList.set(planId, newPlan); 
+            planList.set(planId, newPlan);
         } else {
             planList.add(newPlan);
         }
-        System.out.println("Add plan success ID: " +planId);
+        System.out.println("Add plan success ID: " + planId);
     }
 
     public void removePlan(int planId){
         int x = planList.size();
         for (int i = 0; i < x; i++){
-            if (planList.get(i).getPlanId() == planId){
+            if (planList.get(i).getPlanid() == planId){
                 planList.remove(i);
                 System.out.println("Remove success");
                 break;
@@ -48,10 +48,10 @@ public class Admin extends User{
         StringBuilder data = new StringBuilder();
         for (DietPlan x : planList) {
             if (x != null) {
-                data.append(x.getPlanId()).append("</ad>")
-                    .append(x.getNamePlan()).append("</ad>")
-                    .append(x.getStartDate()).append("</ad>")
-                    .append(x.getEndDate()).append("</ad>");
+                data.append(x.getPlanid()).append("</ad>")
+                    .append(x.getNameplan()).append("</ad>")
+                    .append(x.getStartdate()).append("</ad>")
+                    .append(x.getEnddate()).append("</ad>");
             }
         }
         return data.toString().trim();
