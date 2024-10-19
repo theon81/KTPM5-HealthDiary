@@ -3,12 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Info</title>
+    <title>CSS Grid Example</title>
+    <style>
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr); /* 3 cột với độ rộng bằng nhau */
+            gap: 10px; /* khoảng cách giữa các ô */
+            padding: 10px;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" th:href="@{/css/userinfo.css}" href="../../static/css/userinfo.css">
+        .grid-item {
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .grid-container #time-box {
+            background-color: #8a3c5c;
+            color: #4CAF50;
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        .grid-container #sleep-box {
+            background-color: #791c1c;
+            color: #4CAF50;
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+        .grid-container #calendar-box {
+            background-color: #ce9e36;
+            color: #4CAF50;
+            grid-column: span 2;
+            grid-row: span 4;
+        }
+        .grid-container #avatar-box {
+            background-color: #5e2991;
+            color: #4CAF50;
+            grid-column: span 3;
+            grid-row: span 4;
+        }
+        .grid-container #heart-box {
+            background-color: #036886;
+            color: #4CAF50;
+            grid-column: span 3;
+            grid-row: span 2;
+        }
+        .grid-container #water-box {
+            background-color: #a7a1f1;
+            color: #4CAF50;
+            grid-column: span 3;
+            grid-row: span 6;
+        }
+        .grid-container #diet-box {
+            background-color: #3e5f34;
+            color: #4CAF50;
+            grid-column: span 2;
+            grid-row: span 6;
+        }
+
+    </style>
 </head>
 <body>
     
+    <div class="grid-container">
+        <div class="grid-item" id = "time-box">time</div>
+        <div class="grid-item" id = "sleep-box">sleep</div>
+        <div class="grid-item" id = "calendar-box">calendar</div>
+        <div class="grid-item" id = "avatar-box">avatar</div>
+        <div class="grid-item" id = "water-box">water</div>
+        <div class="grid-item" id = "diet-box">dietplan</div>
+        <div class="grid-item" id = "avatar-box">heart</div>
+    </div>
 </body>
 </html>
