@@ -3,80 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CSS Grid Example</title>
-    <style>
-        .grid-container {
-            display: grid;
-            grid-template-columns: repeat(8, 1fr); /* 3 cột với độ rộng bằng nhau */
-            gap: 10px; /* khoảng cách giữa các ô */
-            padding: 10px;
-            height: 100vh;
-            background-color: #f0f0f0;
-        }
+    <title>User Info</title>
 
-        .grid-item {
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-            padding: 50px;
-            text-align: center;
-        }
-
-        .grid-container #time-box {
-            background-color: #8a3c5c;
-            color: #4CAF50;
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-        .grid-container #sleep-box {
-            background-color: #791c1c;
-            color: #4CAF50;
-            grid-column: span 3;
-            grid-row: span 4;
-        }
-        .grid-container #calendar-box {
-            background-color: #ce9e36;
-            color: #4CAF50;
-            grid-column: span 2;
-            grid-row: span 4;
-        }
-        .grid-container #avatar-box {
-            background-color: #5e2991;
-            color: #4CAF50;
-            grid-column: span 3;
-            grid-row: span 4;
-        }
-        .grid-container #heart-box {
-            background-color: #036886;
-            color: #4CAF50;
-            grid-column: span 3;
-            grid-row: span 2;
-        }
-        .grid-container #water-box {
-            background-color: #a7a1f1;
-            color: #4CAF50;
-            grid-column: span 3;
-            grid-row: span 6;
-        }
-        .grid-container #diet-box {
-            background-color: #3e5f34;
-            color: #4CAF50;
-            grid-column: span 2;
-            grid-row: span 6;
-        }
-
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" th:href="@{/css/UserCSS/userinfo.css}" href="../../static/css/UserCSS/userinfo.css">
 </head>
 <body>
-    
-    <div class="grid-container">
-        <div class="grid-item" id = "time-box">time</div>
-        <div class="grid-item" id = "sleep-box">sleep</div>
-        <div class="grid-item" id = "calendar-box">calendar</div>
-        <div class="grid-item" id = "avatar-box">avatar</div>
-        <div class="grid-item" id = "water-box">water</div>
-        <div class="grid-item" id = "diet-box">dietplan</div>
-        <div class="grid-item" id = "avatar-box">heart</div>
+    <div class="wrapper">
+        <div class="title">
+            <span id="label">
+                <h1>
+                    Welcome to your
+                    <span class="magic">
+                      <span class="magic-star">
+                        <svg viewBox="0 0 512 512">
+                        <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                        </svg>
+                      </span>
+                      <span class="magic-star">
+                        <svg viewBox="0 0 512 512">
+                        <path d="M512 255.1c0 11.34-7.406 20.86-18.44 23.64l-171.3 42.78l-42.78 171.1C276.7 504.6 267.2 512 255.9 512s-20.84-7.406-23.62-18.44l-42.66-171.2L18.47 279.6C7.406 276.8 0 267.3 0 255.1c0-11.34 7.406-20.83 18.44-23.61l171.2-42.78l42.78-171.1C235.2 7.406 244.7 0 256 0s20.84 7.406 23.62 18.44l42.78 171.2l171.2 42.78C504.6 235.2 512 244.6 512 255.1z" />
+                        </svg>
+                      </span>
+                      <span class="magic-text">dashboard</span>
+                    </span>
+                    !
+                </h1>
+                <h2 id="day-message"></h2>
+            </span>
+            
+            <div class="calendar">
+                <div class="datetime-container">
+                    <i class="fa-solid fa-calendar"></i>
+                    <div class="datetime"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="diet"></div>
+        <div class="water"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="sleep" >
+            <div class="sleep-time">
+                <span class="bedtime">Bedtime:</span>
+                <span class="time-number">--:--</span>
+                <span class="am-pm">PM</span>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
+
+    <script>
+        let index = 0,
+            interval = 1000;
+
+        const rand = (min, max) => 
+            Math.floor(Math.random() * (max - min + 1)) + min;
+
+        const animate = star => {
+            star.style.setProperty("--star-left", `${rand(-10, 100)}%`);
+            star.style.setProperty("--star-top", `${rand(-40, 80)}%`);
+
+            star.style.animation = "none";
+            star.offsetHeight;
+            star.style.animation = "";
+        }
+
+        for(const star of document.getElementsByClassName("magic-star")) {
+            setTimeout(() => {
+                animate(star);
+                
+                setInterval(() => animate(star), 1000);
+            }, index++ * (interval / 3))
+        }
+
+        // Today
+        const dayMessage = document.getElementById('day-message');
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const today = new Date();
+        const dayName = days[today.getDay()];
+        dayMessage.textContent = `Have a nice ${dayName}!`;
+
+        // Calendar
+        const datetimeElement = document.querySelector('.datetime');
+        const updateDateTime = () => {
+            const now = new Date();
+            const options = { month: 'short', day: 'numeric', year: 'numeric', hour: 'numeric', minute: 'numeric', hour12: true };
+            const formattedDate = now.toLocaleDateString('en-US', options).replace(',', '').replace(',', '   ');
+            datetimeElement.textContent = formattedDate;
+        };
+
+        updateDateTime();
+        setInterval(updateDateTime, 60000); // Update every minute
+    </script>
+    <script th:src="@{/js/userinfo.js}" src="../../static/js/userinfo.js"></script>
 </body>
 </html>

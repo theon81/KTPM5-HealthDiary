@@ -12,6 +12,9 @@
             padding: 0;
             margin: 0;
         }
+        body {
+            position: relative;
+        }
         #container {
             width: 100%;
 
@@ -31,10 +34,13 @@
 
             box-shadow: 1px 7px 4px 2px rgba(255, 255, 255, 0.2) ;
 
+            border-radius: 14px;
+
             display: flex;
 
             position: relative;
 
+            background-image: url("../../static/media/UserInfo/DietBGs/dietplan.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -42,12 +48,12 @@
         }
         .diet-box > .diet-name {
             color: white;
-            font-size: 34px;
+            font-size: 100px;
             font-weight: 600;
 
             position: absolute; 
-            top: 20px;
-            left: 20px;
+            top: 40%;
+            left: 40px;
         }
         .diet-box > .button-more {
             width: 10%;
@@ -101,31 +107,101 @@
             font-size: 20px;
             font-weight: 500;
         }
-        #container .diet-box:nth-child(1){
-            /* link anh http  */
-            background-image: url(""); 
+        #add-diet{
+            width: 90%;
+            height: 600px;
+            margin: 40px 0;
+
+            box-shadow: 1px 7px 4px 2px rgba(255, 255, 255, 0.2) ;
+
+            border-radius: 14px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            background-color: rgba(255, 255, 255, 0.6);
+
+            cursor: pointer;
         }
-        #container .diet-box:nth-child(2){
-            /* link anh http  */
-            background-image: url(""); 
+        #add-diet > i {
+            font-size: 100px;
+            color: white;
+
         }
-        #container .diet-box:nth-child(3){
-            /* link anh http  */
-            background-image: url(""); 
+        #coating {
+            width: 100%;
+            height: 100vh;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            display: none;
         }
-        #container .diet-box:nth-child(4){
-            /* link anh http  */
-            background-image: url(""); 
+        #add-form {
+            width: 100%;
+            height: 100%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-        #container .diet-box:nth-child(5){
-            /* link anh http  */
-            background-image: url(""); 
+        #add-form form{
+            width: 80%;
+            height: 90%;
+
+            border-radius: 24px;
+            /* background-color: rgba(255, 255, 255, 0.2); */
+            background-color: black;
+
+            box-sizing: border-box;
+            padding: 30px 50px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+        }
+        #add-form form > i {
+            position: absolute;
+            top: 13px;
+            right: 20px;
+
+            font-size: 45px;
+        }
+
+        /* animation  */
+        #coating.isvisible{
+            display: block !important;
         }
     </style>
 </head>
 <body>
     <div id="container">
-        <div class="diet-box">
+        <div id="coating">
+            <div id="add-form" >
+                <form action="" style="color: white;">
+                    <h3>Add Diet Plan</h3>
+                    <i id="button-exit" class="fa-solid fa-xmark"></i>
+                    <label for="">Name:</label>
+                    <input type="text" placeholder="Name Diet Plan" id="nameDiet">
+                    <label for="">Type Plan:</label>
+                    <input type="text" placeholder="Type Diet Plan" id="typeDiet">
+                    <label for="">Start Date:</label>
+                    <input type="date" name="startDate" id="startDate">
+                    <label for="">End Date:</label>
+                    <input type="date" name="endDate" id="endDate">
+                    <label for="">Foods:</label>
+                    <div class="add-food">
+                        <input type="text"> <i class="fa-solid fa-square-plus"></i>
+                    </div>
+                    <input type="submit" value="Add Diet Plan" id="adddiet-submit">
+                </form>
+            </div>
+        </div>
+        <!-- <div class="diet-box">
             <div class="diet-name">diet plan 1</div>
             <div class="button-more">more</div>
         </div>
@@ -144,7 +220,119 @@
         <div class="diet-box">
             <div class="diet-name">diet plan 5</div>
             <div class="button-more">more</div>
+        </div> -->
+        <div id="add-diet">
+            <i class="fa-solid fa-circle-plus"></i>
         </div>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetchDietPlans();
+            const addform = document.getElementById("coating");
+            const addFrame = document.getElementById("add-diet");
+            const buttonExit = document.getElementById("button-exit");
+            addFrame.addEventListener("click", () => {
+                addform.classList.add("isvisible");
+            });
+            buttonExit.addEventListener("click", () => {
+                addform.classList.remove("isvisible");
+            });
+
+            function fetchDietPlans() {
+                fetch('/api/Dietlist')
+                    .then(response => response.json())
+                    .then(data => {
+                        displayDietPlans(data);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching diet plans:', error);
+                    });
+            }
+
+            function displayDietPlans(dietPlans) {
+                const dietContainer = document.getElementById("container"); 
+
+                dietPlans.forEach(plan => {
+                    const dietBox = document.createElement('div');
+                    dietBox.classList.add('diet-box');
+
+                    const dietName = document.createElement('div');
+                    dietName.classList.add('diet-name');
+                    dietName.textContent = plan.name; 
+                    const buttonMore = document.createElement('div');
+                    buttonMore.classList.add('button-more');
+                    buttonMore.textContent = 'more';
+
+                    // Gắn sự kiện cho nút "more"
+                    buttonMore.addEventListener('click', () => {
+                        alert(`More info about: ${plan.name}`);
+                    });
+
+                    dietBox.appendChild(dietName);
+                    dietBox.appendChild(buttonMore);
+                    dietContainer.appendChild(dietBox);
+                });
+            }
+
+            document.getElementById("adddiet-submit").addEventListener("click", function(event) {
+                event.preventDefault(); 
+                const nameDiet = document.querySelector('#nameDiet').value;
+                const typeDiet = document.querySelector('#typeDiet').value;
+                const startDate = document.querySelector('#startDate').value;
+                const endDate = document.querySelector('#endDate').value;
+
+                const foodElements = document.querySelectorAll('.add-food input');
+                const foods = Array.from(foodElements)
+                    .map(foodInput => foodInput.value)
+                    .filter(food => food.trim() !== "");
+
+                if (!nameDiet || !typeDiet || !startDate || !endDate || foods.length === 0) {
+                    alert("Please fill in all fields and add at least one food item.");
+                    return;
+                }
+
+                const newDiet = {
+                    name: nameDiet,
+                    type: typeDiet,
+                    startDate: startDate,
+                    endDate: endDate,
+                    foods: foods
+                };
+
+                addDietPlan(newDiet);
+            });
+
+            document.querySelector('.fa-square-plus').addEventListener('click', function() {
+                const foodContainer = document.querySelector('.add-food');
+                const newFoodInput = document.createElement('input');
+                newFoodInput.type = 'text';
+                foodContainer.appendChild(newFoodInput);
+            });
+
+            function addDietPlan(newDiet) {
+                fetch('/api/AddDiet', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(newDiet)
+                })
+                .then(response => {
+                    if (response.ok) {
+                        return response.text();
+                    }
+                    throw new Error('Failed to add diet plan');
+                })
+                .then(message => {
+                    console.log(message);
+                    alert("Diet Plan added successfully!");
+                })
+                .catch(error => {
+                    console.error('Error adding diet plan:', error);
+                    alert("Failed to add Diet Plan");
+                });
+            }
+        });
+    </script>
 </body>
 </html>

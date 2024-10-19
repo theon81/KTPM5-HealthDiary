@@ -9,25 +9,26 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Transient;
 
 @Entity
-@Table(name = "`Account`") // Đảm bảo tên bảng trong cơ sở dữ liệu là Account (có chữ A viết hoa)
+@Table(name = "Users") // Đảm bảo tên bảng trong cơ sở dữ liệu là Account (có chữ A viết hoa)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "ID")
+    @Column(name = "id")
     private Long id;
 
-    @Column(name = "Roles", nullable = false)
+    @Column(name = "roles", nullable = false)
     private boolean roles;
 
-    @Column(name = "Username", nullable = false, unique = true)
+    @Column(name = "username", nullable = false, unique = true)
     private String username;
 
-    @Column(name = "Password", nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Transient
     private boolean statusLogin = false;
+
 
     // Constructor mặc định
     public User() {

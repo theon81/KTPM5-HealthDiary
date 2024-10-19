@@ -59,9 +59,10 @@
             </div>
         </nav>
 
-        <iframe src="" frameborder="0" id="home-container" name="home-container"></iframe>
+        <iframe src="/userinfo" frameborder="0" id="home-container" name="home-container"></iframe>
     </div>
 
+    <script th:src="@{/js/nav-theme.js}" src="../../static/js/nav-theme.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navItems = document.querySelectorAll('.nav-item');

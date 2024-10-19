@@ -4,118 +4,122 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+// import javax.persistence.JoinColumn;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinTable;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "dietplan")
+@Table(name = "dietplans")
 public class DietPlan {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "planId")
-    private int planId;
+    @Column(name = "planid")
+    private long planid; // id cua plan
 
-    @Column(name = "namePlan", nullable = false)
-    private String namePlan;
+    @Column(name = "nameplan", nullable = false)
+    private String nameplan; // ten cua plan
 
-    @Column(name = "typePlan") // Loại kế hoạch ăn uống
-    private String typePlan;
+    @Column(name = "typeplan")
+    private String typeplan; // plan danh cho nguoi tap gym,tieu duong, an kieng,...
 
-    @Column(name = "startDate")
-    private Date startDate;
+    @Column(name = "startdate")
+    private Date startdate;// ngay bat dau cua plan
 
-    @Column(name = "endDate")
-    private Date endDate;
+    @Column(name = "enddate")
+    private Date enddate;// ngay ket thuc 
+    
+    // khi 1 plan duoc khoi tao va nguoi dung dang ki thi no se luu xem co nhung ai dang ki plan nay
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "User_DietPlans",
+        joinColumns = {@JoinColumn(name = "planid")},
+        inverseJoinColumns = {@JoinColumn(name = "userid")}
+    )
+    private List<User> userlist = new ArrayList<>(); 
 
-    @Column(name = "userId")
-    private int useid;
-    // Quan hệ Many-to-One giữa DietPlan và User
-    // @ManyToOne(fetch = FetchType.LAZY)
-    // @JoinColumn(name = "userId")
-    // private User user;
-
-    // Quan hệ One-to-Many giữa DietPlan và Food
-    // @OneToMany(mappedBy = "dietPlan", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    // private List<Food> foodList = new ArrayList<>();
+    // trong 1 plan thi no se co cac loai thuc pham duoc su dung trong plan do
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+        name = "Food_DietPlans",
+        joinColumns = {@JoinColumn(name = "planid")},
+        inverseJoinColumns = {@JoinColumn(name = "foodid")}
+    )
+    private List<Food> foodlist = new ArrayList<>();
 
     // Constructor không tham số
     public DietPlan() {}
 
-    // Constructor có tham số
-    public DietPlan(int planId, String namePlan, String typePlan, Date startDate, Date endDate) {
-        this.planId = planId;
-        this.namePlan = namePlan;
-        this.typePlan = typePlan;
-        this.startDate = startDate;
-        this.endDate = endDate;
-        // this.user = user;
+    public DietPlan(int id, String name, String type, Date start, Date end) {
+        this.planid = id;
+        this.nameplan = name;
+        this.startdate = start;
+        this.enddate = end;
     }
 
-    // Getter và Setter cho các thuộc tính
-    public int getPlanId() {
-        return planId;
+    //setter getter plan id
+    public void setPlanid(int planid) {
+        this.planid = planid;
+    }
+    public long getPlanid() {
+        return planid;
     }
 
-    public void setPlanId(int planId) {
-        this.planId = planId;
+    //setter getter name plan
+    public void setNameplan(String nameplan) {
+        this.nameplan = nameplan;
+    }
+    public String getNameplan() {
+        return nameplan;
     }
 
-    public String getNamePlan() {
-        return namePlan;
+    //setter getter type plan
+    public void setTypeplan(String typeplan) {
+        this.typeplan = typeplan;
+    }
+    public String getTypeplan() {
+        return typeplan;
     }
 
-    public void setNamePlan(String namePlan) {
-        this.namePlan = namePlan;
+    //setter getter start date
+    public void setStartdate(Date startdate) {
+        this.startdate = startdate;
+    }
+    public Date getStartdate() {
+        return startdate;
     }
 
-    public String getTypePlan() {
-        return typePlan;
+    //setter getter end date
+    public void setEnddate(Date enddate) {
+        this.enddate = enddate;
+    }
+    public Date getEnddate() {
+        return enddate;
     }
 
-    public void setTypePlan(String typePlan) {
-        this.typePlan = typePlan;
+    //setter getter food list
+    public void setFoodlist(List<Food> foodlist) {
+        this.foodlist = foodlist;
+    }
+    public List<Food> getFoodlist() {
+        return foodlist;
     }
 
-    public Date getStartDate() {
-        return startDate;
+    //setter getter user list
+    public void setUserlist(List<User> userlist) {
+        this.userlist = userlist;
     }
-
-    public void setStartDate(Date startDate) {
-        this.startDate = startDate;
+    public List<User> getUserlist() {
+        return userlist;
     }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
-    public void setEndDate(Date endDate) {
-        this.endDate = endDate;
-    }
-
-    // public User getUser() {
-    //     return user;
-    // }
-
-    // public void setUser(User user) {
-    //     this.user = user;
-    // }
-
-    // public List<Food> getFoodList() {
-    //     return foodList;
-    // }
-
-    // public void setFoodList(List<Food> foodList) {
-    //     this.foodList = foodList;
-    // }
 
     // Phương thức thêm Food vào danh sách
     // public void addFood(Food food) {

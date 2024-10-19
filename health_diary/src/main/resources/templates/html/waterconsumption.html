@@ -6,14 +6,80 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" th:href="@{/css/water.css}" href="../../static/css/water.css">
+    <link rel="stylesheet" th:href="@{/css/WaterCSS/water.css}" href="../../static/css/WaterCSS/water.css">
 </head>
 <body>
     <div class="wrapper">
-        <div class="nav-bar"></div>
+        <div class="content">
+            <div class="left-panel">
+                <div class="progress-container">
+                    <svg class="progress-circle" viewBox="0 0 72 72">
+                        <path class="circle-bg"
+                            d="M36 4.169
+                            a 31.831 31.831 0 0 1 0 63.662
+                            a 31.831 31.831 0 0 1 0 -63.662" />
+                    
+                        <path class="progress" style="display: none;"
+                            stroke-dasharray="0, 100"
+                            d="M36 4.169
+                            a 31.831 31.831 0 0 1 0 63.662
+                            a 31.831 31.831 0 0 1 0 -63.662" />
+                    </svg>
 
+                    <div class="water-amount">
+                        <span id="current-amount">0</span>
+                        <span id="ml" style="color: #AAD7D9;">ml</span>
+                    </div>
+                </div>
 
-        <div class="content"></div>
+                <button id="add-water" class="big-button"><p>+</p></button>
+            </div>
+
+            <div class="right-panel">
+                <div id="amount-options" style="display: none;">
+                    <button class="amount-btn" data-amount="50">50ml</button>
+                    <button class="amount-btn" data-amount="100">100ml</button>
+                    <button class="amount-btn" data-amount="150">150ml</button>
+                    <button class="amount-btn" data-amount="200">200ml</button>
+                    <button class="amount-btn" data-amount="500">500ml</button>
+                    <button id="custom-btn">Custom</button>
+                </div>
+
+                <div id="custom-amount-container" style="display: none;">
+                    <input type="number" id="custom-amount" placeholder="Enter amount" />
+                </div>
+                
+                <button id="cancel-btn" class="round-btn" style="display: none;">x</button>
+
+                <div class="default-content">
+                    <div class="card" id="goal-card">
+                        <div class="card-header">Current Goal</div>
+                        <div class="card-content">
+                            <span id="current-goal">2000ml</span>
+                        </div>
+                        <div class="card-form" style="display: none;">
+                            <input type="number" id="goal-input" placeholder="Enter custom goal (ml)">
+                            <button id="confirm-goal">Confirm</button>
+                            <button id="cancel-goal">Cancel</button>
+                        </div>
+                    </div>
+                    
+                    <div class="card" id="reminder-card">
+                        <div class="card-header">Reminder Interval</div>
+                        <div class="card-content">
+                            <span id="current-interval">1 hour</span>
+                        </div>
+                        <div class="card-form" style="display: none;">
+                            <input type="number" id="interval-input" placeholder="Enter interval (hours)">
+                            <button id="confirm-interval">Confirm</button>
+                            <button id="cancel-interval">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script th:src="@{/js/water.js}" src="../../static/js/water.js"></script>
 </body>
 </html>

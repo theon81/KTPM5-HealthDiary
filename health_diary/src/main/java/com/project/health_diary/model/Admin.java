@@ -36,7 +36,7 @@ public class Admin extends User{
     public void removePlan(int planId){
         int x = planList.size();
         for (int i = 0; i < x; i++){
-            if (planList.get(i).getPlanId() == planId){
+            if (planList.get(i).getPlanid() == planId){
                 planList.remove(i);
                 System.out.println("Remove success");
                 break;
@@ -48,10 +48,10 @@ public class Admin extends User{
         StringBuilder data = new StringBuilder();
         for (DietPlan x : planList) {
             if (x != null) {
-                data.append(x.getPlanId()).append("</ad>")
-                    .append(x.getNamePlan()).append("</ad>")
-                    .append(x.getStartDate()).append("</ad>")
-                    .append(x.getEndDate()).append("</ad>");
+                data.append(x.getPlanid()).append("</ad>")
+                    .append(x.getNameplan()).append("</ad>")
+                    .append(x.getStartdate()).append("</ad>")
+                    .append(x.getEnddate()).append("</ad>");
             }
         }
         return data.toString().trim();

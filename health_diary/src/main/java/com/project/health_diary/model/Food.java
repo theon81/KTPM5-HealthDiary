@@ -1,12 +1,38 @@
 package com.project.health_diary.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.project.health_diary.model.exception.DataException;
 
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "Foods")
 public class Food {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "foodid")
+    private Long foodId;
+    
+    @Column(name = "nameFood", nullable = false)
     private String nameFood;
-    private String typeFood;
-    private double weightLimit;
-    private DietPlan dietPlan;
+
+    @Column(name = "typeFood")
+    private String typeFood; // tinh bột, protein,....
+    @Column(name = "weightLimit")
+    private double weightLimit;// giới hạn định lượng cho 1 tuần
+
+    @ManyToMany(mappedBy = "foodlist", cascade = CascadeType.ALL)
+    private List<DietPlan> dietPlans = new ArrayList<>();
+
 
     public Food() {}
 
@@ -14,6 +40,13 @@ public class Food {
         this.nameFood = nameFood;
         this.typeFood = typeFood;
         this.weightLimit = weightLimit;
+    }
+
+    public void setFoodId(Long foodId) {
+        this.foodId = foodId;
+    }
+    public Long getFoodId() {
+        return foodId;
     }
 
     public String getNameFood() {
@@ -34,18 +67,6 @@ public class Food {
 
     public void setTypeFood(String typeFood) {
         this.typeFood = typeFood;
-    }
-
-    public void setDietPlan(DietPlan dietPlan) {
-
-        this.dietPlan = dietPlan;
-
-    }
-
-    public DietPlan getDietPlan() {
-
-        return dietPlan;
-
     }
     
     public void setWeightLimit(double weightLimit) throws DataException {
