@@ -104,6 +104,7 @@ nav #nav-button-box{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 20px;
 
     /* background-color: red; */
 }
@@ -117,18 +118,12 @@ nav #nav-button-box{
     padding: 3px;
 }
 
-#right #nav-avt .avt-info:hover {
-    color: #16423C;
-    background-color: #6A9C89;
-    color: #E9EFEC;
-}
-
 #right #nav-avt .avt-img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-right: 10px;
-    border: 1px solid #6A9C89;
+    margin-right: 20px;
+    border: 3px solid #6A9C89;
 }
 
 #right a {
