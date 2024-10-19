@@ -6,6 +6,7 @@ public class Food {
     private String nameFood;
     private String typeFood;
     private double weightLimit;
+    private DietPlan dietPlan;
 
     public Food() {}
 
@@ -35,6 +36,18 @@ public class Food {
         this.typeFood = typeFood;
     }
 
+    public void setDietPlan(DietPlan dietPlan) {
+
+        this.dietPlan = dietPlan;
+
+    }
+
+    public DietPlan getDietPlan() {
+
+        return dietPlan;
+
+    }
+    
     public void setWeightLimit(double weightLimit) throws DataException {
         this.weightLimit = weightLimit;
         if (weightLimit < 0 || weightLimit > 1000){
