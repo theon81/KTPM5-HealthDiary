@@ -24,7 +24,7 @@ public class LoginController {
         // Kiểm tra nếu username hoặc password trống
         boolean isLogin = userService.login(username, password);
         if(isLogin){
-            return "redirect:/home";
+            return "redirect:/main";
         }
         return "redirect:/";
     }

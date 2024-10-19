@@ -1,5 +1,6 @@
 package com.project.health_diary.model;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class Admin extends User{

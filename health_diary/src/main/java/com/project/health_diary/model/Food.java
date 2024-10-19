@@ -2,10 +2,6 @@ package com.project.health_diary.model;
 
 import com.project.health_diary.model.exception.DataException;
 
-
-
-
-
 public class Food {
     private String nameFood;
     private String typeFood;

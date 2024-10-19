@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diet plan</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        #container {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+
+            position: relative;
+        }
+
+        .diet-box {
+            width: 90%;
+            height: 600px;
+            margin: 40px 0;
+
+            box-shadow: 1px 7px 4px 2px rgba(255, 255, 255, 0.2) ;
+
+            display: flex;
+
+            position: relative;
+
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-color: yellow;
+        }
+        .diet-box > .diet-name {
+            color: white;
+            font-size: 34px;
+            font-weight: 600;
+
+            position: absolute; 
+            top: 20px;
+            left: 20px;
+        }
+        .diet-box > .button-more {
+            width: 10%;
+            height: 60px;
+
+            padding-top:16px ;
+
+            text-align: center;
+            color: white;
+            font-size: 20px;
+
+            position: absolute;
+            bottom: 20px;
+            right: 30px;
+
+            box-sizing: border-box;
+
+            box-shadow: 1px 3px 5px 2px rgba(255, 255, 255, 0.6);
+        }
+
+        .button-back {
+            width: 8%;
+            height: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 12px;
+            background-color: white;
+
+            color: black;
+
+            position: sticky;
+            top: 5px;
+            left: 0;
+
+            margin-top: 15px;
+            margin-left: 8px;
+
+            font-size: 18px;
+
+            align-self: flex-start;
+
+            z-index: 1000;
+
+            text-decoration: none;
+        }
+        .back-label {
+            margin-left: 10px;
+            font-size: 20px;
+            font-weight: 500;
+        }
+        #container .diet-box:nth-child(1){
+            /* link anh http  */
+            background-image: url(""); 
+        }
+        #container .diet-box:nth-child(2){
+            /* link anh http  */
+            background-image: url(""); 
+        }
+        #container .diet-box:nth-child(3){
+            /* link anh http  */
+            background-image: url(""); 
+        }
+        #container .diet-box:nth-child(4){
+            /* link anh http  */
+            background-image: url(""); 
+        }
+        #container .diet-box:nth-child(5){
+            /* link anh http  */
+            background-image: url(""); 
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <a href="/home" target="container" class="button-back">
+            <i class="fa-solid fa-chevron-left"></i>
+            <span class="back-label">Home</span>
+        </a>
+        <div class="diet-box">
+            <div class="diet-name">diet plan 1</div>
+            <div class="button-more">more</div>
+        </div>
+        <div class="diet-box">
+            <div class="diet-name">diet plan 2</div>
+            <div class="button-more">more</div>
+        </div>
+        <div class="diet-box">
+            <div class="diet-name">diet plan 3</div>
+            <div class="button-more">more</div>
+        </div>
+        <div class="diet-box">
+            <div class="diet-name">diet plan 4</div>
+            <div class="button-more">more</div>
+        </div>
+        <div class="diet-box">
+            <div class="diet-name">diet plan 5</div>
+            <div class="button-more">more</div>
+        </div>
+    </div>
+</body>
+</html>
