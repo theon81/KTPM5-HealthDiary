@@ -1,33 +1,46 @@
 * {
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
 }
-body{
+
+body {
+    width: 100vw;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+body .wrapper {
     width: 100%;
     height: 100%;
-    position: relative;
 
-    background-color: white;
+    display: flex;
+    flex-direction: column;
+
+
 }
+
 nav {
-    position: fixed;
-    height: 70px;
+    height: 10%;
     width: 100%;
-    top: 0;
-    left: 0;
-    right: 0;
+
     background-color: rgba(255, 255, 255, 0.4);
     box-shadow: 1px 3px 2px 1px rgba(255, 255, 255, 0.4);
     display: flex;
 
     overflow: hidden;
-
 }
+
 nav #nav-avt{
     width: 20%;
     height: 100%;
     background-color: aqua;
 }
+
 nav #nav-button-box{
     width: 80%;
     height: 100%;
@@ -39,7 +52,8 @@ nav #nav-button-box{
     align-items: center;
 
 }
-nav #button-container{
+
+nav #button-container {
     width: 60%;
     height: 100%;
     display: flex;
@@ -48,12 +62,13 @@ nav #button-container{
     align-items: center;
     /* background-color: aqua; */
 }
+
 nav #button-container > #nav-button-item {
     width: 25%;
     margin: 0 10px;
 }
 
-nav #nav-button-box #nav-button-item{
+nav #nav-button-box #nav-button-item {
     width: 15%;
     height: 100%;
 
@@ -64,12 +79,14 @@ nav #nav-button-box #nav-button-item{
     justify-content: center;
     align-items: center;
 }
-nav #nav-button-box > #nav-button-item:nth-child(1){
+
+nav #nav-button-box > #nav-button-item:nth-child(1) {
     /* justify-self: flex-start; */
     width: 20%;
     margin-right: 20px;
     margin-left: 0;
 }
+
 nav #nav-button-box > #nav-button-item:nth-last-child(1){
     width: 10%;
     margin-right: 5px;
@@ -77,14 +94,11 @@ nav #nav-button-box > #nav-button-item:nth-last-child(1){
     /* background-color: aqua !important; */
 }
 
-#container {
+.wrapper #home-container {
     width: 100%;
-    height: 100vh;
+    height: 90%;
 
     background-color: red;
-
-    box-sizing: border-box;
-    padding-top: 100px;
 }
 
 a > div > i {

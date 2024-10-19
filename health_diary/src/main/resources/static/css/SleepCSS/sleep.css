@@ -14,16 +14,16 @@ body {
 }
 
 .wrapper {
-    width: 80vw;
-    height: 90vh;
+    width: 100%;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
-    border-radius: 40px;
+    justify-content: center;
     overflow: hidden;
 
     background: rgba(35, 45, 63, 0.51);
-    border-radius: 16px;
+    /* border-radius: 16px; */
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10.4px);
     -webkit-backdrop-filter: blur(10.4px);
@@ -99,6 +99,7 @@ body {
 
 #reminder-tab {
     transform: translateY(0);
+    margin-top: 20%;
 }
 
 #sleep-cycle-tab {
@@ -106,11 +107,11 @@ body {
 }
 
 .mid-tab.active #reminder-tab {
-    transform: translateY(-100%);
+    transform: translateY(-180%);
 }
 
 .mid-tab.active #sleep-cycle-tab {
-    transform: translateY(-100%);
+    transform: translateY(-115%);
 }
 
 .tab .sleep-cycle {

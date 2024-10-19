@@ -9,42 +9,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <nav>
-        <div id="nav-button-box">
-            <a href="/userinfo" id="nav-button-item" target="container">
-                <div >
-                    <i class="fa-solid fa-house-chimney"></i>
+    <div class="wrapper">
+        <nav>
+            <div id="nav-button-box">
+                <a href="/userinfo" id="nav-button-item" target="home-container">
+                    <div >
+                        <i class="fa-solid fa-house-chimney"></i>
+                    </div>
+                </a>
+
+                <div id="button-container">
+                    <a href="/water" id="nav-button-item" target="home-container">
+                        <div >
+                            <i class="fa-solid fa-glass-water-droplet"></i>
+                        </div>
+                    </a>
+
+                    <a href="/sleep" id="nav-button-item" target="home-container">
+                        <div >
+                            <i class="fa-solid fa-moon"></i>
+                        </div>
+                    </a>
+
+                    <a href="/dietDEMO" id="nav-button-item" target="home-container">
+                        <div >
+                            <i class="fa-brands fa-pagelines"></i>
+                        </div>
+                    </a>
                 </div>
-            </a>
-            <div id="button-container">
-                <a href="/water" id="nav-button-item" target="container">
+                <a href="/notif" id="nav-button-item" target="home-container">
                     <div >
-                        <i class="fa-solid fa-glass-water-droplet"></i>
-                    </div>
-                </a>
-                <a href="/sleep" id="nav-button-item" target="container">
-                    <div >
-                        <i class="fa-solid fa-moon"></i>
-                    </div>
-                </a>
-                <a href="/dietDEMO" id="nav-button-item" target="container">
-                    <div >
-                        <i class="fa-brands fa-pagelines"></i>
+                        <i class="fa-regular fa-bell"></i>
                     </div>
                 </a>
             </div>
-            <a href="" id="nav-button-item" target="container">
-                <div >
-                    <i class="fa-regular fa-bell"></i>
+
+            <div id="nav-avt">
+                <div class="avt-img"></div>
+                <div class="avt-info">
+                    <div class="user-name"></div>
                 </div>
-            </a>
-        </div>
-        <div id="nav-avt">
-            <div class="avt-img"></div>
-            <div class="avt-info">
-                <div class="user-name"></div>
             </div>
-        </div>
-    </nav>
+        </nav>
+
+        <iframe src="" frameborder="0" id="home-container" name="home-container"></iframe>
+    </div>
 </body>
 </html>
