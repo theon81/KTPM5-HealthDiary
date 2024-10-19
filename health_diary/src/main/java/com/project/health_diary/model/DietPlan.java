@@ -1,14 +1,14 @@
 package com.project.health_diary.model;
 
-
-
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class DietPlan {
     private int planId;
-    private String namePlan;
-    private Date startDate;
-    private Date endDate;
+    private String namePlan; // ten cua plan
+    private String typeplan; // plan thuoc loai nao: danh cho ng tap gym,an kieng,tieu duong
+    private Date startDate; // ngay bat dau
+    private Date endDate; // ngay ket thuc che do an
     private ArrayList<OtherUser> userList;
     private ArrayList<Food> foodList;
 
@@ -31,6 +31,9 @@ public class DietPlan {
         return namePlan;
     }
     
+    public String getTypeplan() {
+        return typeplan;
+    }
     
     public Date getStartDate() {
         return startDate;
