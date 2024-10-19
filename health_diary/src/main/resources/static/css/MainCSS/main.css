@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --default-icon-color: #4D869C;
+    --nav-background: #EEF7FF;
+    --hovered-background-color: #4D869C;
+    --hovered-icon-color: #EEF7FF
+}
+
 body {
     width: 100vw;
     height: 100vh;
@@ -29,7 +36,8 @@ nav {
     height: 10%;
     width: 100%;
 
-    background-color: #E9EFEC;
+    background-color: var(--nav-background);
+    transition: background-color 0.3s ease-in-out;
     box-shadow: 1px 3px 2px 1px rgba(255, 255, 255, 0.4);
     display: flex;
 
@@ -64,15 +72,20 @@ nav #nav-button-box{
 
 .button-container a {
     text-decoration: none;
-    color: #6A9C89;
+    color: var(--default-icon-color);
+    transition: color .3s ease-in-out;
 
     margin: 5px;
 }
 
 .button-container a:hover,
 .button-container a.active {
-    color: #E9EFEC;
-    background-color: #16423C;
+    color: var(--hovered-icon-color);
+    transition: color .3s ease-in-out;
+
+    background-color: var(--hovered-background-color);
+    transition: background-color 0.3s ease-in-out;
+
 }
 
 #left a {
@@ -114,7 +127,9 @@ nav #nav-button-box{
 }
 
 #right #nav-avt .user-name {
-    color: #6A9C89;
+    color: var(--default-icon-color);
+    transition: color .3s ease-in-out;
+
     padding: 3px;
 }
 
@@ -123,7 +138,9 @@ nav #nav-button-box{
     height: 50px;
     border-radius: 50%;
     margin-right: 20px;
-    border: 3px solid #6A9C89;
+    border: 3px solid var(--default-icon-color);
+    transition: border .3s ease-in-out;
+
 }
 
 #right a {
