@@ -9,12 +9,19 @@ public class HealthDiaryController {
     // Hiển thị trang đăng nhập
     @GetMapping("/")
     public String login(Model model) {
-        return "signin"; // Trả về trang đăng nhập
+        return "html/signin"; // Trả về trang đăng nhập
     }
-
+    @GetMapping("/signin")
+    public String loginPage(Model nodel){
+        return "html/signin";
+    }
+    @GetMapping("/main")
+    public String signInPage(){
+        return "main";
+    }
     @GetMapping("/home")
     public String homePage(){
-        return "main";
+        return "html/home";
     }
     
     @GetMapping("/userinfo")
@@ -35,6 +42,11 @@ public class HealthDiaryController {
     @GetMapping("/water")
     public String waterPage(){
         return "html/waterconsumption";
+    }
+
+    @GetMapping("/dietDEMO")
+    public String dietDEMO(){
+        return "html/dietplanDEMO";
     }
 
 }

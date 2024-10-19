@@ -6,25 +6,30 @@ body{
     width: 100%;
     height: 100%;
     position: relative;
+
+    background-color: white;
 }
 nav {
     position: fixed;
-    height: 100px;
+    height: 70px;
+    width: 100%;
     top: 0;
     left: 0;
     right: 0;
     background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 3px 2px 1px rgba(255, 255, 255, 0.4);
     display: flex;
 
     overflow: hidden;
+
 }
 nav #nav-avt{
-    width: 15%;
+    width: 20%;
     height: 100%;
     background-color: aqua;
 }
 nav #nav-button-box{
-    width: 85%;
+    width: 80%;
     height: 100%;
 
     /* background-color: blue; */
@@ -32,6 +37,7 @@ nav #nav-button-box{
     display: flex;
     justify-content: center;
     align-items: center;
+
 }
 nav #button-container{
     width: 60%;
@@ -40,7 +46,11 @@ nav #button-container{
 
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    /* background-color: aqua; */
+}
+nav #button-container > #nav-button-item {
+    width: 25%;
+    margin: 0 10px;
 }
 
 nav #nav-button-box #nav-button-item{
@@ -48,18 +58,23 @@ nav #nav-button-box #nav-button-item{
     height: 100%;
 
     margin: 0 10px;
-    background-color: chartreuse;
+    /* background-color: chartreuse; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 nav #nav-button-box > #nav-button-item:nth-child(1){
     /* justify-self: flex-start; */
     width: 20%;
-    margin-right: 80px;
+    margin-right: 20px;
     margin-left: 0;
 }
 nav #nav-button-box > #nav-button-item:nth-last-child(1){
+    width: 10%;
     margin-right: 5px;
     margin-left: 100px;
-    background-color: aqua !important;
+    /* background-color: aqua !important; */
 }
 
 #container {
@@ -70,4 +85,12 @@ nav #nav-button-box > #nav-button-item:nth-last-child(1){
 
     box-sizing: border-box;
     padding-top: 100px;
+}
+
+a > div > i {
+    font-size: 34px;
+}
+
+#nav-button-item:hover > div{
+    background-color: rgba(255, 255, 255, 0.4);
 }

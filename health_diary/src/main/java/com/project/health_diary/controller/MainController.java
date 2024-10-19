@@ -13,8 +13,4 @@ import com.project.health_diary.service.UserService;
 @Controller
 public class MainController {
 
-    @GetMapping("/main")
-    public String mainPage() {
-        return "main"; // This should return the main.html template
-    }
 }
