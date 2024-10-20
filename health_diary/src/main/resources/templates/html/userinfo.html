@@ -41,61 +41,36 @@
         </div>
 
         <div class="diet"></div>
-        <div class="water"></div>
 
+        <div class="water">
+            <div class="current-amount">
+                <span class="current-water">1200</span> <!-- lay tu data luong nuoc cua nguoi dung -->
+                <span id="ml">ml</span>
+            </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+            <div class="reminder">
+                <div class="reminder-box">
+                    <a href="/water" target="home-container">
+                        <span id="text">Hydrate now!</span>
+                        <span id="arrow">>></span>
+                    </a>
+                </div>
+            </div>
+        </div>
 
         <div class="sleep" >
             <div class="sleep-time">
                 <span class="bedtime">Bedtime:</span>
-                <span class="time-number">--:--</span>
+                <span class="time-number">00:00</span>
                 <span class="am-pm">PM</span>
             </div>
+
+            <div class="overlay">
+                <a href="/sleep" class="circle">
+                    >>
+                </a>
+            </div>
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </div>
 
     <script>
@@ -141,6 +116,7 @@
         updateDateTime();
         setInterval(updateDateTime, 60000); // Update every minute
     </script>
+    <script th:src="@{/js/nav-hide.js}" src="../../static/js/nav-hide.js"></script>
     <script th:src="@{/js/userinfo.js}" src="../../static/js/userinfo.js"></script>
 </body>
 </html>

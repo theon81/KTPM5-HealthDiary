@@ -25,7 +25,7 @@ public class LoginController {
         boolean isLogin = userService.login(username, password);
         if(isLogin){
             return "redirect:/main";
-        }
+        } else
         return "redirect:/";
     }
 

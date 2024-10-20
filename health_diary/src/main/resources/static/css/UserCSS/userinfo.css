@@ -198,9 +198,11 @@ h2 {
     align-items: center;
     gap: 10px;
 
-    background-color: #EEF5FF80;
+    background-color: #EEF5FF24;
+    backdrop-filter: blur(1.8px);
+    -webkit-backdrop-filter: blur(1.8px);
     padding: 10px 10px;
-    border-radius: 5px;
+    border-radius: 16px;
 }
 
 
@@ -232,8 +234,67 @@ h2 {
 .water {
     grid-column: span 2;
     grid-row: span 2;
-    background-color: #98DED9;
+    
+    background-image: url(../../media/UserInfo/WaterBG.png);
+    background-size: 100%;
+    background-position: center;
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
+    -webkit-box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
+    -moz-box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
     border-radius: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: background-size 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.water:hover {
+    background-size: 105%;
+    box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
+    -webkit-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
+    -moz-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
+}
+
+.water .current-amount {
+    width: 100%;
+    height: 70%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.current-amount .current-water {
+    font-size: 8em;
+    font-weight: 900;
+    color: #F1FADA;
+    text-shadow: 0px 0px 11px #265073;
+
+    transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.water:hover .current-water {
+    font-size: 8.6em;
+    color: #2D9596;
+    text-shadow: 0px 0px 51px #9AD0C2;
+}
+
+.current-amount #ml {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: #F1FADA;
+    text-shadow: 0px 0px 11px #265073;
+
+    transition: font-size 0.3s ease-in-out, text-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.water:hover #ml {
+    font-size: 1.9em;
+    color: #2D9596;
+    text-shadow: 0px 0px 51px #9AD0C2;
 }
 
 
@@ -241,19 +302,174 @@ h2 {
 
 
 
+
+
+
+.water:hover .reminder-box {
+    scale: 1.1;
+}
+
+.water .reminder {
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reminder .reminder-box {
+    width: 40%;
+    height: 40%;
+
+    background: rgba(146, 199, 207, 0.24);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.8px);
+    -webkit-backdrop-filter: blur(1.8px);
+
+    display: grid;
+    place-items: center;
+
+    scale: 1;
+    transition: scale 0.3s ease-in-out;
+}
+
+.reminder-box a {
+    width: 100%;
+    height: 100%;
+
+    text-decoration: none;
+    color: #FBF9F1;
+
+    font-size: 1.1em;
+    font-weight: 900;
+
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.reminder-box a #text, 
+.reminder-box a #arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s cubic-bezier(.01,.88,.5,1.01), left 0.3s cubic-bezier(.01,.88,.5,1.01);
+}
+
+.reminder-box a #text {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.reminder-box a #arrow {
+    left: 150%;
+    transform: translate(-50%, -50%);
+}
+
+.reminder-box a:hover { 
+    color: #FBF9F1;
+    text-shadow: rgb(146, 199, 207) 0px 0px 40px;
+}
+
+.reminder-box:hover {
+    background: rgba(251, 249, 241, 0.44);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px #E5E1DA50;
+    backdrop-filter: blur(1.8px);
+    -webkit-backdrop-filter: blur(1.8px);
+}
+
+.reminder-box a:hover #text {
+    transform: translate(-300%, -50%);
+}
+
+.reminder-box a:hover #arrow {
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 /* SLEEP */
 .sleep {
     grid-column: span 2;
     grid-row: span 2;
-    background-color: yellow;
-    border-radius: 40px;
 
     background-image: url(../../media/UserInfo/SleepBG.png);
-    background-size: cover;
+    background-size: 100%;
+    background-position: center;
+
+    box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
+    -webkit-box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
+    -moz-box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
+    border-radius: 40px;
+    transition: background-size 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.sleep:hover {
+    background-size: 105%;
     box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
     -webkit-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
     -moz-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
-    position: relative;
+}
+
+.sleep .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(238, 247, 255, 0.15);
+    border-radius: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(1.5px);
+    -webkit-backdrop-filter: blur(1.5px);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 20;
+}
+
+.sleep .overlay .circle {
+    width: 100px;
+    height: 100px;
+
+    background-color: #4D869C;
+    box-shadow: 0 0 10px #CDE8E510;
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    text-decoration: none;
+    color: #EEF7FF;
+    font-size: 2.5em;
+    font-weight: 900;
+
+    scale: 1;
+    transition: scale 0.3s ease-in-out, 
+                font-size 0.3s ease-in-out, 
+                background-color 0.3s ease-in-out;
+}
+
+.sleep:hover .overlay {
+    opacity: 1;
+}
+
+.overlay .circle:hover {
+    scale: 1.1;
+    font-size: 2.1em;
+
+    background-color: #7AB2B2;
 }
 
 .sleep .sleep-time {
@@ -286,6 +502,8 @@ h2 {
     text-shadow: 0px 0px 11px #4D869C;
 
     z-index: 9;
+    transition: font-size 0.3s ease-in-out;
+
 }
 
 .sleep-time .time-number {
@@ -320,6 +538,17 @@ h2 {
         0 3px 0 #4D869C70;
 
     z-index: 10;
+
+    transition: font-size 0.3s ease-in-out;
+}
+
+.sleep:hover .time-number {
+    font-size: 12.7em;
+}
+
+.sleep:hover .bedtime,
+.sleep:hover .am-pm {
+    font-size: 2.7em;
 }
 
 .sleep-time .am-pm {
@@ -333,4 +562,6 @@ h2 {
     text-shadow: 0px 0px 11px #4D869C;
 
     z-index: 9;
+
+    transition: font-size 0.3s ease-in-out;
 }
