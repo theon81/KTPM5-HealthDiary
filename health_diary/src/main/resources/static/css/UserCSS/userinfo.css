@@ -236,7 +236,7 @@ h2 {
     grid-row: span 2;
     
     background-image: url(../../media/UserInfo/WaterBG.png);
-    background-size: 100%;
+    background-size: 105%;
     background-position: center;
     box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
     -webkit-box-shadow: -1px 1px 20px 0px rgba(0,0,0,0.83) inset;
@@ -251,7 +251,7 @@ h2 {
 }
 
 .water:hover {
-    background-size: 105%;
+    background-size: 110%;
     box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
     -webkit-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;
     -moz-box-shadow: -1px 1px 123px 0px rgba(0,0,0,0.83) inset;

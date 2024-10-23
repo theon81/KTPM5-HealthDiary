@@ -49,4 +49,8 @@ public class HealthDiaryController {
         return "html/dietplanDEMO";
     }
 
+    @GetMapping("/notif")
+    public String notifications(){
+        return "html/notifications";
+    }
 }
